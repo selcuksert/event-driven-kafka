@@ -1,13 +1,23 @@
-FROM custom/kafka/broker
+FROM openjdk:12-alpine
 
 MAINTAINER Selcuk SERT <selcuk.sert@gmail.com>
 
 ARG KAFKA_VERSION=5.4.1
 ARG AVRO_VERSION=1.9.1
 ARG MYSQL_CON_VERSION=8.0.19
+ENV VERSION=2.5.0
+ENV ARCH_VERSION=2.12-${VERSION}
+ENV JMX_AGENT_VER=0.12.0
+ENV KAFKA_ROOT=/usr/share/kafka
+ENV KAFKA_BIN_URL=https://downloads.apache.org/kafka/${VERSION}/kafka_${ARCH_VERSION}.tgz
+ENV KAFKA_HOME=${KAFKA_ROOT}/kafka_${ARCH_VERSION}
+ENV PATH=${PATH}:${KAFKA_HOME}/bin
+ENV TZ=Europe/Istanbul
 
 ADD ./scripts/*.sh ${KAFKA_HOME}/bin/
 ADD ./config/*.properties ${KAFKA_HOME}/config/
+
+RUN apk --no-cache add bash && wget -q ${KAFKA_BIN_URL} && tar -xzf kafka_${ARCH_VERSION}.tgz -C ${KAFKA_ROOT}
 
 RUN wget -q -P ${KAFKA_HOME}/libs/ https://packages.confluent.io/maven/io/confluent/kafka-schema-registry-client/${KAFKA_VERSION}/kafka-schema-registry-client-${KAFKA_VERSION}.jar && \
 wget -q -P ${KAFKA_HOME}/libs/ https://packages.confluent.io/maven/io/confluent/kafka-connect-avro-converter/${KAFKA_VERSION}/kafka-connect-avro-converter-${KAFKA_VERSION}.jar && \
