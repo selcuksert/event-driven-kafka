@@ -1,0 +1,177 @@
+[ {
+  "type" : "enum",
+  "name" : "OrderState",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "symbols" : [ "CREATED", "VALIDATED", "FAILED", "SHIPPED" ]
+}, {
+  "type" : "enum",
+  "name" : "Size",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "symbols" : [ "XS", "S", "M", "L", "XL" ]
+}, {
+  "type" : "record",
+  "name" : "Item",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "long"
+  }, {
+    "name" : "name",
+    "type" : "string"
+  }, {
+    "name" : "title",
+    "type" : "string"
+  }, {
+    "name" : "category",
+    "type" : "string"
+  }, {
+    "name" : "price",
+    "type" : "double"
+  }, {
+    "name" : "description",
+    "type" : "string"
+  }, {
+    "name" : "image",
+    "type" : "string"
+  }, {
+    "name" : "largeImage",
+    "type" : "string"
+  }, {
+    "name" : "features",
+    "type" : {
+      "type" : "array",
+      "items" : "string"
+    }
+  } ]
+}, {
+  "type" : "record",
+  "name" : "CartItem",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "long"
+  }, {
+    "name" : "accountId",
+    "type" : "long"
+  }, {
+    "name" : "itemId",
+    "type" : "long"
+  }, {
+    "name" : "quantity",
+    "type" : "int"
+  }, {
+    "name" : "size",
+    "type" : "string"
+  } ]
+}, {
+  "type" : "record",
+  "name" : "Address",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "long"
+  }, {
+    "name" : "customerId",
+    "type" : "long"
+  }, {
+    "name" : "text",
+    "type" : "string"
+  }, {
+    "name" : "city",
+    "type" : "string"
+  }, {
+    "name" : "town",
+    "type" : "string"
+  }, {
+    "name" : "code",
+    "type" : "string"
+  }, {
+    "name" : "country",
+    "type" : "string"
+  } ]
+}, {
+  "type" : "record",
+  "name" : "Account",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "long"
+  }, {
+    "name" : "email",
+    "type" : "string"
+  }, {
+    "name" : "phoneNumber",
+    "type" : "string"
+  } ]
+}, {
+  "type" : "record",
+  "name" : "PaymentMethod",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "fields" : [ {
+    "name" : "cardHolderName",
+    "type" : "string"
+  }, {
+    "name" : "cardNumber",
+    "type" : "string"
+  }, {
+    "name" : "expiry",
+    "type" : "string"
+  }, {
+    "name" : "cvv",
+    "type" : "int"
+  } ]
+}, {
+  "type" : "record",
+  "name" : "Inventory",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "fields" : [ {
+    "name" : "itemId",
+    "type" : "long"
+  }, {
+    "name" : "count",
+    "type" : "int"
+  } ]
+}, {
+  "type" : "record",
+  "name" : "Order",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "long"
+  }, {
+    "name" : "accountId",
+    "type" : "long"
+  }, {
+    "name" : "timestamp",
+    "type" : "int"
+  }, {
+    "name" : "state",
+    "type" : "OrderState"
+  }, {
+    "name" : "paymentMethod",
+    "type" : "PaymentMethod"
+  }, {
+    "name" : "shippingAddressId",
+    "type" : "long"
+  }, {
+    "name" : "billingAddressId",
+    "type" : "long"
+  }, {
+    "name" : "cartId",
+    "type" : "long"
+  } ]
+}, {
+  "type" : "record",
+  "name" : "Cart",
+  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "long"
+  }, {
+    "name" : "cartItems",
+    "type" : {
+      "type" : "array",
+      "items" : "long"
+    }
+  } ]
+} ]

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0A00B86B-3172-D255-22F3-839F06687E71" name="FEATURE">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>FC415D0E-6A70-7BEA-D56F-8D6C6C3DD801</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="5E88391F-7B95-DB36-764A-9BB77C8CA5E9">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>D2F44B18-9C40-0AB3-3592-00C3B2E135EC</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="text" id="B2BBC339-B692-A5BC-EF1D-A06A5C7DD49E">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>9ACC3710-4E57-A219-90A0-9C90B0AE9DD8</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ITEM_id" id="44A983D3-221A-6179-140D-6B59D293C12D">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>AAF89BFC-E841-781A-332F-61D34C109AF1</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="31428258-6FA0-091D-BA67-9740433C61AE" referredColumn="04A12778-A281-83F5-6ABD-424A43A3EA56"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A0B582B2-0C9C-83B4-923B-F10FD0E8D436" name="FEATURE_PK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>E019EB5E-DADB-F4C9-F739-4011A2D904D7</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5E88391F-7B95-DB36-764A-9BB77C8CA5E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3115CF66-0E97-F98E-EFE8-9B9A04E58AA9" name="FEATURE_ITEM_FK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>039FFFC5-69E5-2A02-9D74-E317D18D4DF2</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="44A983D3-221A-6179-140D-6B59D293C12D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

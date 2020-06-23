@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="12E7381F-4AE3-9981-BCE9-0ECBC4BA366D" name="CART_ITEM">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>61F33453-49E0-31DA-0539-EBF57DF21870</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="9CD650F3-BD48-0FFD-7937-01DCBDA680F6">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>98DF9150-E69C-91B3-A53E-06788A1BE1DC</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="quantity" id="69DA5926-5275-5D0D-6EEC-4E207581FCD6">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>B8CA322B-4212-DFC9-25AE-101B6B71939F</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="size" id="7403C551-F732-33DC-0D1E-D62C16C51F55">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>866A5159-E993-F331-5296-C60B577F2E57</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORDER_id" id="C5F8D8A9-0F4E-55C7-1EED-E07441B741F3">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>82501640-1DF3-E06A-A8FC-D6A4F72F9268</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B52840CB-016A-0BAD-078A-B0DB641CF675" referredColumn="C0783E85-2CB0-4454-9558-D6AB40F92DBD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4AEF5567-F89A-AD81-E597-B403DE5B9E8B" name="CART_ITEM_PK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>BFB725DE-E026-43FC-6D5C-C0CA26ECC5B5</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9CD650F3-BD48-0FFD-7937-01DCBDA680F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="908A4862-4DC1-E209-C7BA-A1BBAD4BF72A" name="CART_ITEM_ORDER_FK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>81883957-314F-5659-0212-3ADD614AFB6B</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C5F8D8A9-0F4E-55C7-1EED-E07441B741F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

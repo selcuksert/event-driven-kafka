@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="851E7A4C-C224-43E3-5EC3-8068A1368D7D" name="PAYMENT_METHOD">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>658423A6-82D3-EFA3-A0B0-861E67D9D322</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="A7A41453-4E53-DABA-1D74-9D262EDADE67">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>9F7E3FC5-8343-A505-B3E7-EA8C4681FA52</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="card_holder_name" id="7ED79F24-549C-D6A2-28F4-D6F0A7FA7800">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>D9D69261-883C-7053-67ED-B6880B75DDF0</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="card_number" id="B9F9F417-92BD-4288-B870-605B5E06A30D">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>221071EA-99B8-2E09-21BF-449B73ED6A26</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="expiry" id="878345EF-EF6A-83FA-5E39-0D1D34780788">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>BF699703-8B82-D238-2B1A-7B06C41DAC4B</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cvv" id="0FBFD769-4E7D-529F-724A-2C261E823D00">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>3E927D80-8AEC-EA8F-89F0-1B809F74FF8F</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORDER_id" id="51F526D1-FE47-617F-4715-B56B95D92D74">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>D3E26C10-D06E-05CA-9AC6-13CA17162538</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D411E08C-38CB-2FFD-51E4-422E05E58E76" referredColumn="C0783E85-2CB0-4454-9558-D6AB40F92DBD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8F952A98-0C56-B053-4B77-84EF4E5EF6E2" name="PAYMENT_METHOD_PK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>34EDB3F1-6361-39A9-957E-93DEEABAD21B</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7A41453-4E53-DABA-1D74-9D262EDADE67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7B383523-059B-7F4A-9DC5-8C9A23D11594" name="PAYMENT_METHOD__IDX">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>1DBC9D18-C27D-7B54-B7C2-F90B29180106</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="51F526D1-FE47-617F-4715-B56B95D92D74"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9728A994-2B71-405F-189E-616202AF8AB1" name="PAYMENT_METHOD_ORDER_FK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>1DBC9D18-C27D-7B54-B7C2-F90B29180106</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="51F526D1-FE47-617F-4715-B56B95D92D74"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,177 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D7AE8392-5D1A-2C22-4F85-9B0A8DEAEC6F" name="ITEM">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>A460AF89-D635-D251-C60A-6A120210CF58</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="04A12778-A281-83F5-6ABD-424A43A3EA56">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>67F30D3F-D09D-D831-01DC-9C0D756D4C9E</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="D9D9B436-B21C-8189-2944-07242EB63806">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>7BC6D7AD-0611-6188-26E4-48AA1CA3909D</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="title" id="BC902C16-C052-5026-972A-AFBBA1E05427">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>9776D8A8-9CF9-A545-6892-5DC110F2EC19</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="category" id="4E75EEB3-4A7E-0422-4E42-51BB990067BF">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>70392948-3106-661C-7C55-8799BE30024F</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="price" id="E1F91222-2C1A-959A-B53B-EC055BA2619F">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>8DD627E2-F53F-E38A-1905-5E515443DE31</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="3DF4724F-D937-BC12-C660-61BA97F089B1">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>48167BA7-6890-0EF3-2483-F431D02B8B5A</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="image" id="A2A3DA7C-E8DB-B0C6-6E08-0C8AF3C3A53E">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>80B710CD-190B-6B7B-F437-8616894D5E75</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="large_image" id="9D37D597-206D-6B4C-9CA8-E81C25435933">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>6F24C10D-6781-A08B-6225-7F2FA95CC209</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CART_ITEM_id" id="019C37C3-9259-9CF7-65BE-CB3CBEAF8359">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>560F3E38-6859-C43C-6253-23B0BC694C95</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D85D2FC2-CF8F-70AF-9E13-05E665D39442" referredColumn="9CD650F3-BD48-0FFD-7937-01DCBDA680F6"/>
+</associations>
+</Column>
+<Column name="INVENTORY_id" id="79280AFE-E3B6-973A-0C44-F82416CD3F1E">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>6689CADB-B60D-CF20-91EC-271BD26650E3</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="20C3C7E8-CFCB-2D17-CDB5-C1225C8BADCC" referredColumn="96BE10A1-CE8D-2F78-4ABA-0ACB27571DB7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4FDCE161-5D4B-6AC6-B642-944540D6EA39" name="ITEM_PK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>3161D974-5D4F-AA14-D520-A74047E86C48</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04A12778-A281-83F5-6ABD-424A43A3EA56"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CD063030-7724-C7B1-E75A-4176B6263ECC" name="ITEM__IDX">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>9CC173A4-937D-7715-40FA-924194D59D54</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="79280AFE-E3B6-973A-0C44-F82416CD3F1E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FA1E0232-C698-FD39-D3E9-C9A7D68DFE51" name="ITEM_CART_ITEM_FK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>0CD4F444-0F8F-1DCD-1703-4AC1A52B07F5</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="019C37C3-9259-9CF7-65BE-CB3CBEAF8359"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5BEF7648-A9D5-C177-491A-498A3DB9CB12" name="ITEM_INVENTORY_FK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:23:23 UTC</createdTime>
+<generatorID>9CC173A4-937D-7715-40FA-924194D59D54</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79280AFE-E3B6-973A-0C44-F82416CD3F1E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

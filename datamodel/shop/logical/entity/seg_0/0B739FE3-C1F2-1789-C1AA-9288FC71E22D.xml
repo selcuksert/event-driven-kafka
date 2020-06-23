@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0B739FE3-C1F2-1789-C1AA-9288FC71E22D" name="INVENTORY">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:51:09 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="694CDD35-33DE-BEB2-6F40-61F4AB97325D">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:51:15 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="count" id="631ABA73-634D-C525-01FF-06C9F3168A08">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:51:26 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="9CC08EED-1915-6058-DB6E-99CCE0892577">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 19:01:59 UTC</createdTime>
+<generatorID>9CC173A4-937D-7715-40FA-924194D59D54</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<referedAttribute>67F30D3F-D09D-D831-01DC-9C0D756D4C9E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A5AD2027-A354-EC87-23BC-B98EED833705" name="INVENTORY PK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:51:27 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>694CDD35-33DE-BEB2-6F40-61F4AB97325D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

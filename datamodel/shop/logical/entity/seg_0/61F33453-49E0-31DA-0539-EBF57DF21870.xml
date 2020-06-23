@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="61F33453-49E0-31DA-0539-EBF57DF21870" name="CART ITEM">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:28:52 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="98DF9150-E69C-91B3-A53E-06788A1BE1DC">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:31:04 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="quantity" id="B8CA322B-4212-DFC9-25AE-101B6B71939F">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:31:39 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="size" id="866A5159-E993-F331-5296-C60B577F2E57">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:32:05 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="B6D71580-C93D-F8AD-CCA0-B71712F7DBB9">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-17 09:13:52 UTC</createdTime>
+<generatorID>F717367B-6740-C7CF-4DA8-DE74BE5C0B09</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<referedAttribute>95A75CC2-70E4-DCC7-97E1-F706F94F701F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id2" id="BCFEA15C-1CD5-A938-3090-AE175C579157">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-17 09:17:56 UTC</createdTime>
+<generatorID>0CD4F444-0F8F-1DCD-1703-4AC1A52B07F5</generatorID>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<referedAttribute>67F30D3F-D09D-D831-01DC-9C0D756D4C9E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BFB725DE-E026-43FC-6D5C-C0CA26ECC5B5" name="CART ITEM PK">
+<createdBy>S_SERT1</createdBy>
+<createdTime>2020-06-13 16:31:29 UTC</createdTime>
+<ownerDesignName>shop</ownerDesignName>
+<engineerTo>
+<item key="75C9BE1A-BDC7-3C97-5268-AAD44CC29F8A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>98DF9150-E69C-91B3-A53E-06788A1BE1DC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

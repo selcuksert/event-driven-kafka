@@ -1,0 +1,25 @@
+debug: false
+server:
+  port: 9001
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-create-topics: false
+          autoAddPartitions: false
+          transaction:
+            producer:
+              use-native-encoding: true             
+          brokers:
+          - localhost:19093
+          - localhost:19094   
+          producer-properties:
+            key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            schema.registry.url: http://localhost:8081
+      bindings:
+        output:
+          destination: items
+          content-type: application/*+avro
+          producer:            use-native-encoding: true            
