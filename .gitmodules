@@ -1,0 +1,4 @@
+[submodule "webapp/shop"]
+	path = webapp/shop
+	url = https://github.com/Polymer/shop.git
+	branch = lit-element
