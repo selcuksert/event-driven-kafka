@@ -1,17 +1,17 @@
 [ {
   "type" : "enum",
   "name" : "OrderState",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "symbols" : [ "CREATED", "VALIDATED", "FAILED", "SHIPPED" ]
 }, {
   "type" : "enum",
   "name" : "Size",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "symbols" : [ "XS", "S", "M", "L", "XL" ]
 }, {
   "type" : "record",
   "name" : "Item",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "id",
     "type" : "long"
@@ -46,7 +46,7 @@
 }, {
   "type" : "record",
   "name" : "CartItem",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "id",
     "type" : "long"
@@ -66,7 +66,7 @@
 }, {
   "type" : "record",
   "name" : "Address",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "id",
     "type" : "long"
@@ -92,7 +92,7 @@
 }, {
   "type" : "record",
   "name" : "Account",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "id",
     "type" : "long"
@@ -106,7 +106,7 @@
 }, {
   "type" : "record",
   "name" : "PaymentMethod",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "cardHolderName",
     "type" : "string"
@@ -123,7 +123,7 @@
 }, {
   "type" : "record",
   "name" : "Inventory",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "itemId",
     "type" : "long"
@@ -134,7 +134,7 @@
 }, {
   "type" : "record",
   "name" : "Order",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "id",
     "type" : "long"
@@ -163,7 +163,7 @@
 }, {
   "type" : "record",
   "name" : "Cart",
-  "namespace" : "com.turkishairlines.concepts.shop.models",
+  "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "id",
     "type" : "long"

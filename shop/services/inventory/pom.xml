@@ -4,14 +4,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.turkishairlines.concepts.shop</groupId>
+		<groupId>com.corp.concepts.shop</groupId>
 		<artifactId>services</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.turkishairlines.concepts.shop.services</groupId>
-	<artifactId>inventory</artifactId>
-	<name>inventory</name>
-	<description>Inventory service</description>
+	<groupId>com.corp.concepts.shop.services</groupId>
+	<artifactId>inventory-processor</artifactId>
+	<name>inventory-processor</name>
+	<description>Inventory processor service</description>
 
 	<dependencies>
 		<dependency>
