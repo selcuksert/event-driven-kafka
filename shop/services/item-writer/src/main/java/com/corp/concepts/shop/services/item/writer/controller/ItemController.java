@@ -1,5 +1,7 @@
 package com.corp.concepts.shop.services.item.writer.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +25,10 @@ public class ItemController {
 
 	@PostMapping
 	@ResponseBody
-	public String sendItemMessage(@RequestBody Item item) {
+	public String sendItemMessage(@RequestBody List<Item> items) {
 		try {
-			this.itemGenerator.sendItemMessage(item);
-			return item.toString();
+			items.stream().forEach(item -> this.itemGenerator.sendItemMessage(item));
+			return "Processed " + items.size() + " item(s).";
 		} catch (Exception e) {
 			log.error("Error during sending message to broker:", e);
 			return e.getMessage();
