@@ -14,8 +14,8 @@
 	<description>Inventory services</description>
 
 	<modules>
-		<module>inventory</module>
-		<module>item</module>
+		<module>item-writer</module>
+		<module>inventory-processor</module>
 		<module>inventory-writer</module>
 	</modules>
 

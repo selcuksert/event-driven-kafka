@@ -9,9 +9,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.corp.concepts.shop.services</groupId>
-	<artifactId>item</artifactId>
-	<name>item</name>
-	<description>Item service</description>
+	<artifactId>item-writer</artifactId>
+	<name>item-writer</name>
+	<description>Item writer service</description>
 
 	<dependencies>
 		<dependency>
