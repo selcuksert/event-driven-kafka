@@ -1,6 +1,6 @@
 debug: true
 logging:
-  file:    name: app.log
+  #file:    #name: app.log
   level:    root: info
     org.apache.kafka: info
 server: 
