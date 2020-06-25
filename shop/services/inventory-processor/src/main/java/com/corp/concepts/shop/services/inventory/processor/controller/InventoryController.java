@@ -28,7 +28,7 @@ public class InventoryController {
 
 	@GetMapping
 	@ResponseBody
-	public String getInventoryItemById(@RequestParam(value = "id") Long itemId,
+	public String getInventoryItemById(@RequestParam(value = "itemId") Long itemId,
 			@Value("${spring.cloud.stream.kafka.streams.binder.configuration.inventory-materialized-as}") String tableName) {
 		try {
 			ReadOnlyKeyValueStore<Long, Inventory> keyValueStore = interactiveQueryService.getQueryableStore(tableName,
