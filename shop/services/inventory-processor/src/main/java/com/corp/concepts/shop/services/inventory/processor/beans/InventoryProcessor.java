@@ -20,8 +20,10 @@ import lombok.extern.slf4j.Slf4j;
 public class InventoryProcessor {
 
 	@Bean
-	public Function<KStream<Long, Item>, KStream<Long, Inventory>> processItem() {
+	public Function<KStream<Long, Item>, KStream<Long, Inventory>> processItem(
+			@Value("${spring.cloud.stream.kafka.streams.binder.configuration.item-materialized-as}") String tableName) {
 		return input -> input.peek((key, item) -> log.info("key: {} | item: {}", key, item))
+				.toTable(Materialized.as(tableName)).toStream()
 				.map((key, item) -> new KeyValue<>(item.getId(), new Inventory(item.getId(), 0)));
 	}
 
