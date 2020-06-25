@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.item.source;
+package com.corp.concepts.shop.services.inventory.writer.source;
 
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -6,26 +6,26 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
-import com.corp.concepts.shop.models.Item;
+import com.corp.concepts.shop.models.Inventory;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j(topic = "Item Generator Logger")
-public class ItemGenerator {
+@Slf4j(topic = "Inventory Generator Logger")
+public class InventoryGenerator {
 
 	private Source source;
 
-	public ItemGenerator(Source source) {
+	public InventoryGenerator(Source source) {
 		this.source = source;
 	}
 
-	public void sendItemMessage(Item item) {
-		Message<Item> message = MessageBuilder.withPayload(item).setHeader(KafkaHeaders.MESSAGE_KEY, item.getId())
-				.build();
-		
+	public void sendInventoryMessage(Inventory inventory) {
+		Message<Inventory> message = MessageBuilder.withPayload(inventory)
+				.setHeader(KafkaHeaders.MESSAGE_KEY, inventory.getItemId()).build();
+
 		source.output().send(message);
-		
+
 		log.info("Message sent");
 	}
 

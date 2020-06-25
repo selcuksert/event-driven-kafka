@@ -6,11 +6,8 @@ spring:
     stream:
       kafka:
         binder:
-          auto-create-topics: false
+          autoCreateTopics: false
           autoAddPartitions: false
-          transaction:
-            producer:
-              use-native-encoding: true             
           brokers:
           - localhost:19093
           - localhost:19094   
@@ -23,5 +20,4 @@ spring:
           destination: inventory
           content-type: application/*+avro
           producer:
-            use-native-encoding: true
-            
+            useNativeEncoding: true              

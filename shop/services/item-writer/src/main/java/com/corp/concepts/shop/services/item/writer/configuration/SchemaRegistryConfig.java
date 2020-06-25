@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.item.configuration;
+package com.corp.concepts.shop.services.item.writer.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.schema.registry.client.ConfluentSchemaRegistryClient;
@@ -15,7 +15,5 @@ public class SchemaRegistryConfig {
 		ConfluentSchemaRegistryClient client = new ConfluentSchemaRegistryClient();
 		client.setEndpoint(endpoint);
 		return client;
-
 	}
-
 }

@@ -2,33 +2,42 @@ debug: true
 logging:
   file:    name: app.log
   level:    root: info
-    org.apache.kafka.streams: info
+    org.apache.kafka: info
 server: 
   port: 9000
 spring:
   cloud:    stream:
-      function:        definition: sinkItem, sinkInventory, processItem
+      function:        definition: processItem, sinkInventory
       bindings:
-        sinkItem-in-0:
-          destination: items
-          group: item-readers
-        sinkInventory-in-0:
-          destination: inventory
-          group: inventory-readers
         processItem-in-0:
           destination: items
+          consumer:            use-native-decoding: true
         processItem-out-0:
           destination: inventory
+          producer:            use-native-encoding: true
+        sinkInventory-in-0:
+          destination: inventory
+          consumer:
+            use-native-decoding: true
       kafka:
         streams:
           binder:
+            application-id: inventory-processor
             brokers:
             - localhost:19093
             - localhost:19094
             configuration:
-              schema.registry.url: http://localhost:8081
-              default:
-                key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
-                value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
-            auto-create-topics: false
+              schema.registry.url: http://localhost:8081              
+              default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+              default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+              default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
+              inventory-materialized-as: inventory-table
+            autoCreateTopics: false
             autoAddPartitions: false
+          bindings:
+            processItem-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            processItem-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+            processItem-out-0.producer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            processItem-out-0.producer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+            sinkInventory-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            sinkInventory-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde

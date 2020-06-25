@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.corp.concepts.shop.models.Inventory;
-import com.corp.concepts.shop.services.inventory.writer.source.InventorySource;
+import com.corp.concepts.shop.services.inventory.writer.source.InventoryGenerator;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,9 +16,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/inventory")
 public class InventoryController {
 
-	private final InventorySource inventoryService;
+	private final InventoryGenerator inventoryService;
 
-	public InventoryController(InventorySource inventoryService) {
+	public InventoryController(InventoryGenerator inventoryService) {
 		this.inventoryService = inventoryService;
 	}
 

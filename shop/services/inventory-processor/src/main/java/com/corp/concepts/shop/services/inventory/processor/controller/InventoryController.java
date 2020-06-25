@@ -2,6 +2,7 @@ package com.corp.concepts.shop.services.inventory.processor.controller;
 
 import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +27,11 @@ public class InventoryController {
 
 	@GetMapping("/item")
 	@ResponseBody
-	public String getItemById(@RequestParam(value = "id") Long itemId) {
+	public String getItemById(@RequestParam(value = "id") Long itemId,
+			@Value("${spring.cloud.stream.kafka.streams.binder.configuration.inventory-materialized-as}") String tableName) {
 		try {
-			ReadOnlyKeyValueStore<Long, Inventory> keyValueStore = interactiveQueryService
-					.getQueryableStore("inventory-table", QueryableStoreTypes.<Long, Inventory>keyValueStore());
+			ReadOnlyKeyValueStore<Long, Inventory> keyValueStore = interactiveQueryService.getQueryableStore(tableName,
+					QueryableStoreTypes.<Long, Inventory>keyValueStore());
 
 			Inventory inventory = keyValueStore.get(itemId);
 
@@ -38,7 +40,7 @@ public class InventoryController {
 			}
 
 		} catch (Exception e) {
-			log.error("Error during sending message to broker:", e);
+			log.error("Error when sending message to broker:", e);
 			return "Error occured. Please try again later.";
 		}
 

@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.item;
+package com.corp.concepts.shop.services.item.writer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,10 +9,10 @@ import org.springframework.cloud.stream.messaging.Source;
 @SpringBootApplication
 @EnableBinding(Source.class)
 @EnableSchemaRegistryClient
-public class ItemApplication {
+public class ItemWriterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ItemApplication.class, args);
+		SpringApplication.run(ItemWriterApplication.class, args);
 	}
 
 }

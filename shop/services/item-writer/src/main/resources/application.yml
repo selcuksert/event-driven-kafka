@@ -8,9 +8,6 @@ spring:
         binder:
           auto-create-topics: false
           autoAddPartitions: false
-          transaction:
-            producer:
-              use-native-encoding: true             
           brokers:
           - localhost:19093
           - localhost:19094   
@@ -22,4 +19,5 @@ spring:
         output:
           destination: items
           content-type: application/*+avro
-          producer:            use-native-encoding: true            
+          producer:            useNativeEncoding: true
+                 
