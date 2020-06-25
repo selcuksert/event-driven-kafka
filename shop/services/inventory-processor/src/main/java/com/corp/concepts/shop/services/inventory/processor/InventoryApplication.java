@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.inventory;
+package com.corp.concepts.shop.services.inventory.processor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

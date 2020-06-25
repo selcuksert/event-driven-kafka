@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.inventory.processor;
+package com.corp.concepts.shop.services.inventory.processor.beans;
 
 import java.util.function.Consumer;
 import java.util.function.Function;

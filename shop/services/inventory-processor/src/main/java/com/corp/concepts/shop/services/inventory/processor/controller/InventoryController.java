@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.inventory.controller;
+package com.corp.concepts.shop.services.inventory.processor.controller;
 
 import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
