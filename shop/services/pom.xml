@@ -10,8 +10,8 @@
 	<groupId>com.corp.concepts.shop</groupId>
 	<artifactId>services</artifactId>
 	<packaging>pom</packaging>
-	<name>inventory</name>
-	<description>Inventory services</description>
+	<name>services</name>
+	<description>Shop services</description>
 
 	<modules>
 		<module>item-writer</module>
