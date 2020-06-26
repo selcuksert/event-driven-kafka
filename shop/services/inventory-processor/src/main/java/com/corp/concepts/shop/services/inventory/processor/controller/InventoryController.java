@@ -4,6 +4,7 @@ import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/inventory")
 public class InventoryController {
 

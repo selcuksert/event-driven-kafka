@@ -11,6 +11,7 @@
 import { PageViewElement } from './page-view-element.js';
 import { html } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { repeat } from 'lit-html/directives/repeat.js';
 import { shopButtonStyle } from './shop-button-style.js';
 import { shopCommonStyle } from './shop-common-style.js';
 import { shopSelectStyle } from './shop-select-style.js';
@@ -174,6 +175,11 @@ class ShopDetail extends connect(store)(PageViewElement) {
         <div class="description">
           <h2>Description</h2>
           <p>${this._item ? unsafeHTML(this._unescapeText(this._item.description)) : null}</p>
+          <h4>Features:</h4>
+          <ul>
+            ${repeat(this._item.features, (i) => i.id, (i) => html`
+            <li>${unsafeHTML(this._unescapeText(i))}</li>`)}
+          </ul>
         </div>
         <shop-button responsive>
           <button @click="${this._addToCart}" aria-label="Add this item to cart">
@@ -190,13 +196,15 @@ class ShopDetail extends connect(store)(PageViewElement) {
     <shop-network-warning ?hidden="${!this._failure}"></shop-network-warning>`;
   }
 
-  static get properties() { return {
+  static get properties() {
+    return {
 
-    _item: { type: Object },
+      _item: { type: Object },
 
-    _failure: { type: Boolean }
+      _failure: { type: Boolean }
 
-  }}
+    }
+  }
 
   stateChanged(state) {
     const category = currentCategorySelector(state);
