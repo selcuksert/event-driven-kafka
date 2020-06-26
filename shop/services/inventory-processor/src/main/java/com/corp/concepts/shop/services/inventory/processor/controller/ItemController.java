@@ -35,9 +35,9 @@ public class ItemController {
 
 	@GetMapping("/item")
 	@ResponseBody
-	public String getItemById(@RequestParam(value = "id") Long itemId, String tableName) {
+	public String getItemById(@RequestParam(value = "id") Long itemId) {
 		try {
-			ReadOnlyKeyValueStore<Long, Item> keyValueStore = interactiveQueryService.getQueryableStore(tableName,
+			ReadOnlyKeyValueStore<Long, Item> keyValueStore = interactiveQueryService.getQueryableStore(itemTable,
 					QueryableStoreTypes.<Long, Item>keyValueStore());
 
 			Item item = keyValueStore.get(itemId);
