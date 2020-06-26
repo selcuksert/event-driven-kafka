@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.corp.concepts.shop.models.Inventory;
-import com.corp.concepts.shop.models.Item;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -48,25 +47,4 @@ public class InventoryController {
 		return "Not found";
 	}
 
-	@GetMapping("/item")
-	@ResponseBody
-	public String getItemById(@RequestParam(value = "id") Long itemId,
-			@Value("${spring.cloud.stream.kafka.streams.binder.configuration.item-materialized-as}") String tableName) {
-		try {
-			ReadOnlyKeyValueStore<Long, Item> keyValueStore = interactiveQueryService.getQueryableStore(tableName,
-					QueryableStoreTypes.<Long, Item>keyValueStore());
-
-			Item item = keyValueStore.get(itemId);
-
-			if (item != null) {
-				return item.toString();
-			}
-
-		} catch (Exception e) {
-			log.error("Error when sending message to broker:", e);
-			return "Error occured. Please try again later.";
-		}
-
-		return "Not found";
-	}
 }
