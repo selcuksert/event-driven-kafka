@@ -92,6 +92,10 @@ class ShopDetail extends connect(store)(PageViewElement) {
         color: var(--app-secondary-color);
       }
 
+      .description > ul > li {
+        color: var(--app-secondary-color);
+      }
+
       .pickers {
         display: flex;
         flex-direction: column;
@@ -175,7 +179,7 @@ class ShopDetail extends connect(store)(PageViewElement) {
         <div class="description">
           <h2>Description</h2>
           <p>${this._item ? unsafeHTML(this._unescapeText(this._item.description)) : null}</p>
-          <h4>Features:</h4>
+          <h2>Features:</h2>
           <ul>
             ${repeat(this._item.features, (i) => i.id, (i) => html`
             <li>${unsafeHTML(this._unescapeText(i))}</li>`)}
