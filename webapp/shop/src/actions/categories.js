@@ -59,7 +59,7 @@ export const fetchCategoriesIfNeeded = () => (dispatch, getState) => {
 export const fetchCategoryItemsIfNeeded = (category) => (dispatch, getState) => {
   if (category && category.name && !category.items && !category.isFetching) {
     dispatch(requestCategoryItems(category.name));
-    // fetch items per category from item-reader service
+    // fetch items per-category from item-reader service
     return fetch(`${window.location.protocol}//${window.location.hostname}:9002/items/category?name=${category.name}`)
       .then(res => res.json())
       .then(items => dispatch(receiveCategoryItems(category.name, items)))
