@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Cart extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6772037017477808289L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Cart\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"cartItems\",\"type\":{\"type\":\"array\",\"items\":\"long\"}}]}");
+  private static final long serialVersionUID = 2783264539143768374L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Cart\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"customerId\",\"type\":\"long\"},{\"name\":\"cartItems\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CartItem\",\"fields\":[{\"name\":\"item\",\"type\":{\"type\":\"record\",\"name\":\"Item\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeImage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"size\",\"type\":{\"type\":\"enum\",\"name\":\"Size\",\"symbols\":[\"XS\",\"S\",\"M\",\"L\",\"XL\"]}}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,7 +72,8 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
    private long id;
-   private java.util.List<java.lang.Long> cartItems;
+   private long customerId;
+   private java.util.List<com.corp.concepts.shop.models.CartItem> cartItems;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -84,10 +85,12 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   /**
    * All-args constructor.
    * @param id The new value for id
+   * @param customerId The new value for customerId
    * @param cartItems The new value for cartItems
    */
-  public Cart(java.lang.Long id, java.util.List<java.lang.Long> cartItems) {
+  public Cart(java.lang.Long id, java.lang.Long customerId, java.util.List<com.corp.concepts.shop.models.CartItem> cartItems) {
     this.id = id;
+    this.customerId = customerId;
     this.cartItems = cartItems;
   }
 
@@ -97,7 +100,8 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return cartItems;
+    case 1: return customerId;
+    case 2: return cartItems;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -107,7 +111,8 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (java.lang.Long)value$; break;
-    case 1: cartItems = (java.util.List<java.lang.Long>)value$; break;
+    case 1: customerId = (java.lang.Long)value$; break;
+    case 2: cartItems = (java.util.List<com.corp.concepts.shop.models.CartItem>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -130,10 +135,27 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
   /**
+   * Gets the value of the 'customerId' field.
+   * @return The value of the 'customerId' field.
+   */
+  public long getCustomerId() {
+    return customerId;
+  }
+
+
+  /**
+   * Sets the value of the 'customerId' field.
+   * @param value the value to set.
+   */
+  public void setCustomerId(long value) {
+    this.customerId = value;
+  }
+
+  /**
    * Gets the value of the 'cartItems' field.
    * @return The value of the 'cartItems' field.
    */
-  public java.util.List<java.lang.Long> getCartItems() {
+  public java.util.List<com.corp.concepts.shop.models.CartItem> getCartItems() {
     return cartItems;
   }
 
@@ -142,7 +164,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
    * Sets the value of the 'cartItems' field.
    * @param value the value to set.
    */
-  public void setCartItems(java.util.List<java.lang.Long> value) {
+  public void setCartItems(java.util.List<com.corp.concepts.shop.models.CartItem> value) {
     this.cartItems = value;
   }
 
@@ -188,7 +210,8 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
     implements org.apache.avro.data.RecordBuilder<Cart> {
 
     private long id;
-    private java.util.List<java.lang.Long> cartItems;
+    private long customerId;
+    private java.util.List<com.corp.concepts.shop.models.CartItem> cartItems;
 
     /** Creates a new Builder */
     private Builder() {
@@ -205,9 +228,13 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.cartItems)) {
-        this.cartItems = data().deepCopy(fields()[1].schema(), other.cartItems);
+      if (isValidValue(fields()[1], other.customerId)) {
+        this.customerId = data().deepCopy(fields()[1].schema(), other.customerId);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
+      }
+      if (isValidValue(fields()[2], other.cartItems)) {
+        this.cartItems = data().deepCopy(fields()[2].schema(), other.cartItems);
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
     }
 
@@ -221,9 +248,13 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.cartItems)) {
-        this.cartItems = data().deepCopy(fields()[1].schema(), other.cartItems);
+      if (isValidValue(fields()[1], other.customerId)) {
+        this.customerId = data().deepCopy(fields()[1].schema(), other.customerId);
         fieldSetFlags()[1] = true;
+      }
+      if (isValidValue(fields()[2], other.cartItems)) {
+        this.cartItems = data().deepCopy(fields()[2].schema(), other.cartItems);
+        fieldSetFlags()[2] = true;
       }
     }
 
@@ -267,10 +298,49 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
     }
 
     /**
+      * Gets the value of the 'customerId' field.
+      * @return The value.
+      */
+    public long getCustomerId() {
+      return customerId;
+    }
+
+
+    /**
+      * Sets the value of the 'customerId' field.
+      * @param value The value of 'customerId'.
+      * @return This builder.
+      */
+    public com.corp.concepts.shop.models.Cart.Builder setCustomerId(long value) {
+      validate(fields()[1], value);
+      this.customerId = value;
+      fieldSetFlags()[1] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'customerId' field has been set.
+      * @return True if the 'customerId' field has been set, false otherwise.
+      */
+    public boolean hasCustomerId() {
+      return fieldSetFlags()[1];
+    }
+
+
+    /**
+      * Clears the value of the 'customerId' field.
+      * @return This builder.
+      */
+    public com.corp.concepts.shop.models.Cart.Builder clearCustomerId() {
+      fieldSetFlags()[1] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'cartItems' field.
       * @return The value.
       */
-    public java.util.List<java.lang.Long> getCartItems() {
+    public java.util.List<com.corp.concepts.shop.models.CartItem> getCartItems() {
       return cartItems;
     }
 
@@ -280,10 +350,10 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'cartItems'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Cart.Builder setCartItems(java.util.List<java.lang.Long> value) {
-      validate(fields()[1], value);
+    public com.corp.concepts.shop.models.Cart.Builder setCartItems(java.util.List<com.corp.concepts.shop.models.CartItem> value) {
+      validate(fields()[2], value);
       this.cartItems = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -292,7 +362,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
       * @return True if the 'cartItems' field has been set, false otherwise.
       */
     public boolean hasCartItems() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[2];
     }
 
 
@@ -302,7 +372,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
       */
     public com.corp.concepts.shop.models.Cart.Builder clearCartItems() {
       cartItems = null;
-      fieldSetFlags()[1] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -312,7 +382,8 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
       try {
         Cart record = new Cart();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.Long) defaultValue(fields()[0]);
-        record.cartItems = fieldSetFlags()[1] ? this.cartItems : (java.util.List<java.lang.Long>) defaultValue(fields()[1]);
+        record.customerId = fieldSetFlags()[1] ? this.customerId : (java.lang.Long) defaultValue(fields()[1]);
+        record.cartItems = fieldSetFlags()[2] ? this.cartItems : (java.util.List<com.corp.concepts.shop.models.CartItem>) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -347,14 +418,16 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   {
     out.writeLong(this.id);
 
+    out.writeLong(this.customerId);
+
     long size0 = this.cartItems.size();
     out.writeArrayStart();
     out.setItemCount(size0);
     long actualSize0 = 0;
-    for (java.lang.Long e0: this.cartItems) {
+    for (com.corp.concepts.shop.models.CartItem e0: this.cartItems) {
       actualSize0++;
       out.startItem();
-      out.writeLong(e0);
+      e0.customEncode(out);
     }
     out.writeArrayEnd();
     if (actualSize0 != size0)
@@ -369,40 +442,52 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
     if (fieldOrder == null) {
       this.id = in.readLong();
 
+      this.customerId = in.readLong();
+
       long size0 = in.readArrayStart();
-      java.util.List<java.lang.Long> a0 = this.cartItems;
+      java.util.List<com.corp.concepts.shop.models.CartItem> a0 = this.cartItems;
       if (a0 == null) {
-        a0 = new SpecificData.Array<java.lang.Long>((int)size0, SCHEMA$.getField("cartItems").schema());
+        a0 = new SpecificData.Array<com.corp.concepts.shop.models.CartItem>((int)size0, SCHEMA$.getField("cartItems").schema());
         this.cartItems = a0;
       } else a0.clear();
-      SpecificData.Array<java.lang.Long> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<java.lang.Long>)a0 : null);
+      SpecificData.Array<com.corp.concepts.shop.models.CartItem> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.corp.concepts.shop.models.CartItem>)a0 : null);
       for ( ; 0 < size0; size0 = in.arrayNext()) {
         for ( ; size0 != 0; size0--) {
-          java.lang.Long e0 = (ga0 != null ? ga0.peek() : null);
-          e0 = in.readLong();
+          com.corp.concepts.shop.models.CartItem e0 = (ga0 != null ? ga0.peek() : null);
+          if (e0 == null) {
+            e0 = new com.corp.concepts.shop.models.CartItem();
+          }
+          e0.customDecode(in);
           a0.add(e0);
         }
       }
 
     } else {
-      for (int i = 0; i < 2; i++) {
+      for (int i = 0; i < 3; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.id = in.readLong();
           break;
 
         case 1:
+          this.customerId = in.readLong();
+          break;
+
+        case 2:
           long size0 = in.readArrayStart();
-          java.util.List<java.lang.Long> a0 = this.cartItems;
+          java.util.List<com.corp.concepts.shop.models.CartItem> a0 = this.cartItems;
           if (a0 == null) {
-            a0 = new SpecificData.Array<java.lang.Long>((int)size0, SCHEMA$.getField("cartItems").schema());
+            a0 = new SpecificData.Array<com.corp.concepts.shop.models.CartItem>((int)size0, SCHEMA$.getField("cartItems").schema());
             this.cartItems = a0;
           } else a0.clear();
-          SpecificData.Array<java.lang.Long> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<java.lang.Long>)a0 : null);
+          SpecificData.Array<com.corp.concepts.shop.models.CartItem> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.corp.concepts.shop.models.CartItem>)a0 : null);
           for ( ; 0 < size0; size0 = in.arrayNext()) {
             for ( ; size0 != 0; size0--) {
-              java.lang.Long e0 = (ga0 != null ? ga0.peek() : null);
-              e0 = in.readLong();
+              com.corp.concepts.shop.models.CartItem e0 = (ga0 != null ? ga0.peek() : null);
+              if (e0 == null) {
+                e0 = new com.corp.concepts.shop.models.CartItem();
+              }
+              e0.customDecode(in);
               a0.add(e0);
             }
           }

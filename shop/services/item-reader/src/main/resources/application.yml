@@ -30,4 +30,4 @@ spring:
             autoAddPartitions: false
           bindings:
             sinkItem-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
-            sinkItem-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+            sinkItem-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde  application:    name: item-reader

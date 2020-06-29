@@ -18,6 +18,8 @@
 		<module>item-reader</module>
 		<module>inventory-processor</module>
 		<module>inventory-writer</module>
+		<module>cart-processor</module>
+		<module>cart-writer</module>
 	</modules>
 
 	<dependencies>

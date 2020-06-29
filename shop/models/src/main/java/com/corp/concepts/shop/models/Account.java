@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Account extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 560753416028704367L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Account\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"email\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"phoneNumber\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = -3436158250296523141L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Account\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"customerId\",\"type\":\"long\"},{\"name\":\"email\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"phoneNumber\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,6 +72,7 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
   }
 
    private long id;
+   private long customerId;
    private java.lang.String email;
    private java.lang.String phoneNumber;
 
@@ -85,11 +86,13 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * All-args constructor.
    * @param id The new value for id
+   * @param customerId The new value for customerId
    * @param email The new value for email
    * @param phoneNumber The new value for phoneNumber
    */
-  public Account(java.lang.Long id, java.lang.String email, java.lang.String phoneNumber) {
+  public Account(java.lang.Long id, java.lang.Long customerId, java.lang.String email, java.lang.String phoneNumber) {
     this.id = id;
+    this.customerId = customerId;
     this.email = email;
     this.phoneNumber = phoneNumber;
   }
@@ -100,8 +103,9 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return email;
-    case 2: return phoneNumber;
+    case 1: return customerId;
+    case 2: return email;
+    case 3: return phoneNumber;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -111,8 +115,9 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (java.lang.Long)value$; break;
-    case 1: email = value$ != null ? value$.toString() : null; break;
-    case 2: phoneNumber = value$ != null ? value$.toString() : null; break;
+    case 1: customerId = (java.lang.Long)value$; break;
+    case 2: email = value$ != null ? value$.toString() : null; break;
+    case 3: phoneNumber = value$ != null ? value$.toString() : null; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -132,6 +137,23 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
    */
   public void setId(long value) {
     this.id = value;
+  }
+
+  /**
+   * Gets the value of the 'customerId' field.
+   * @return The value of the 'customerId' field.
+   */
+  public long getCustomerId() {
+    return customerId;
+  }
+
+
+  /**
+   * Sets the value of the 'customerId' field.
+   * @param value the value to set.
+   */
+  public void setCustomerId(long value) {
+    this.customerId = value;
   }
 
   /**
@@ -210,6 +232,7 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
     implements org.apache.avro.data.RecordBuilder<Account> {
 
     private long id;
+    private long customerId;
     private java.lang.String email;
     private java.lang.String phoneNumber;
 
@@ -228,13 +251,17 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.email)) {
-        this.email = data().deepCopy(fields()[1].schema(), other.email);
+      if (isValidValue(fields()[1], other.customerId)) {
+        this.customerId = data().deepCopy(fields()[1].schema(), other.customerId);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.phoneNumber)) {
-        this.phoneNumber = data().deepCopy(fields()[2].schema(), other.phoneNumber);
+      if (isValidValue(fields()[2], other.email)) {
+        this.email = data().deepCopy(fields()[2].schema(), other.email);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
+      }
+      if (isValidValue(fields()[3], other.phoneNumber)) {
+        this.phoneNumber = data().deepCopy(fields()[3].schema(), other.phoneNumber);
+        fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
     }
 
@@ -248,13 +275,17 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.email)) {
-        this.email = data().deepCopy(fields()[1].schema(), other.email);
+      if (isValidValue(fields()[1], other.customerId)) {
+        this.customerId = data().deepCopy(fields()[1].schema(), other.customerId);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.phoneNumber)) {
-        this.phoneNumber = data().deepCopy(fields()[2].schema(), other.phoneNumber);
+      if (isValidValue(fields()[2], other.email)) {
+        this.email = data().deepCopy(fields()[2].schema(), other.email);
         fieldSetFlags()[2] = true;
+      }
+      if (isValidValue(fields()[3], other.phoneNumber)) {
+        this.phoneNumber = data().deepCopy(fields()[3].schema(), other.phoneNumber);
+        fieldSetFlags()[3] = true;
       }
     }
 
@@ -298,6 +329,45 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /**
+      * Gets the value of the 'customerId' field.
+      * @return The value.
+      */
+    public long getCustomerId() {
+      return customerId;
+    }
+
+
+    /**
+      * Sets the value of the 'customerId' field.
+      * @param value The value of 'customerId'.
+      * @return This builder.
+      */
+    public com.corp.concepts.shop.models.Account.Builder setCustomerId(long value) {
+      validate(fields()[1], value);
+      this.customerId = value;
+      fieldSetFlags()[1] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'customerId' field has been set.
+      * @return True if the 'customerId' field has been set, false otherwise.
+      */
+    public boolean hasCustomerId() {
+      return fieldSetFlags()[1];
+    }
+
+
+    /**
+      * Clears the value of the 'customerId' field.
+      * @return This builder.
+      */
+    public com.corp.concepts.shop.models.Account.Builder clearCustomerId() {
+      fieldSetFlags()[1] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'email' field.
       * @return The value.
       */
@@ -312,9 +382,9 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public com.corp.concepts.shop.models.Account.Builder setEmail(java.lang.String value) {
-      validate(fields()[1], value);
+      validate(fields()[2], value);
       this.email = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -323,7 +393,7 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'email' field has been set, false otherwise.
       */
     public boolean hasEmail() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[2];
     }
 
 
@@ -333,7 +403,7 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public com.corp.concepts.shop.models.Account.Builder clearEmail() {
       email = null;
-      fieldSetFlags()[1] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -352,9 +422,9 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public com.corp.concepts.shop.models.Account.Builder setPhoneNumber(java.lang.String value) {
-      validate(fields()[2], value);
+      validate(fields()[3], value);
       this.phoneNumber = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -363,7 +433,7 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'phoneNumber' field has been set, false otherwise.
       */
     public boolean hasPhoneNumber() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
 
 
@@ -373,7 +443,7 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public com.corp.concepts.shop.models.Account.Builder clearPhoneNumber() {
       phoneNumber = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -383,8 +453,9 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
       try {
         Account record = new Account();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.Long) defaultValue(fields()[0]);
-        record.email = fieldSetFlags()[1] ? this.email : (java.lang.String) defaultValue(fields()[1]);
-        record.phoneNumber = fieldSetFlags()[2] ? this.phoneNumber : (java.lang.String) defaultValue(fields()[2]);
+        record.customerId = fieldSetFlags()[1] ? this.customerId : (java.lang.Long) defaultValue(fields()[1]);
+        record.email = fieldSetFlags()[2] ? this.email : (java.lang.String) defaultValue(fields()[2]);
+        record.phoneNumber = fieldSetFlags()[3] ? this.phoneNumber : (java.lang.String) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -419,6 +490,8 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
   {
     out.writeLong(this.id);
 
+    out.writeLong(this.customerId);
+
     out.writeString(this.email);
 
     out.writeString(this.phoneNumber);
@@ -432,22 +505,28 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
     if (fieldOrder == null) {
       this.id = in.readLong();
 
+      this.customerId = in.readLong();
+
       this.email = in.readString();
 
       this.phoneNumber = in.readString();
 
     } else {
-      for (int i = 0; i < 3; i++) {
+      for (int i = 0; i < 4; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.id = in.readLong();
           break;
 
         case 1:
-          this.email = in.readString();
+          this.customerId = in.readLong();
           break;
 
         case 2:
+          this.email = in.readString();
+          break;
+
+        case 3:
           this.phoneNumber = in.readString();
           break;
 

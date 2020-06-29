@@ -12,13 +12,13 @@ import { setCart } from './actions/cart.js';
 
 const CART_LOCAL_STORAGE_KEY = 'shop-cart-data';
 
-function getLocalCartData() {
+function getCartData() {
   const localCartData = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
-  try {
-    return JSON.parse(localCartData) || {};
-  } catch (e) {
-    return {};
-  }
+
+  return fetch(`${window.location.protocol}//${window.location.hostname}:9005/cart?customerId=1`)
+      .then(res => res.json())
+      .then(items => JSON.stringify(items))
+      .catch(() => {});
 }
 
 export function installCart(store) {
@@ -26,7 +26,7 @@ export function installCart(store) {
     // Note: In IE11 the storage event fires even when the modification is in the same window.
     // So here we check to make sure the window receving the event is inactive.
     if (event == null || document.hidden) {
-      store.dispatch(setCart(getLocalCartData()));
+      store.dispatch(setCart(getCartData()));
     }
   }
   window.addEventListener('storage', handleStorageEvent);
@@ -34,7 +34,40 @@ export function installCart(store) {
 
   store.subscribe(() => {
     const state = store.getState();
-    // Note: Setting localStorage does not cause another storage event on same window.
-    localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify(state.cart));
+    sendAddCartRequest(state.cart);
   });
+
+  function sendAddCartRequest(cart) {
+    if(undefined === cart) {
+      return;
+    }
+    
+    let cartValues = Object.values(cart);
+    
+    let cartItemList = new Array();
+
+    cartValues.forEach(cartItem => {
+      cartItemList.push({
+        item: cartItem.item,
+        quantity: cartItem.quantity,
+        size: cartItem.size
+      })
+    });
+
+    let addCartRequestBody = {
+      customerId: 1,
+      cartItems: cartItemList 
+    }
+
+    console.log(addCartRequestBody);
+
+    fetch(`${window.location.protocol}//${window.location.hostname}:9004/cart`, {
+      method: 'POST',
+      body: JSON.stringify(addCartRequestBody),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
+  }
 }

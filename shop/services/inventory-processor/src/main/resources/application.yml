@@ -40,4 +40,4 @@ spring:
             processItem-out-0.producer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
             processItem-out-0.producer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
             sinkInventory-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
-            sinkInventory-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+            sinkInventory-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde  application:    name: inventory-processor

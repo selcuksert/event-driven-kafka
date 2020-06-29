@@ -2,6 +2,7 @@ package com.corp.concepts.shop.services.item.writer.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/item")
 public class ItemController {
 	private final ItemMessageGenerator itemGenerator;

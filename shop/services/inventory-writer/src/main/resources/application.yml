@@ -21,3 +21,5 @@ spring:
           content-type: application/*+avro
           producer:
             useNativeEncoding: true              
+  application:
+    name: inventory-writer

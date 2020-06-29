@@ -1,0 +1,39 @@
+debug: true
+logging:
+  #file:
+    #name: app.log
+  level:
+    root: info
+    org.apache.kafka: info
+server: 
+  port: 9005
+spring:
+  cloud:
+    stream:
+      function:
+        definition: sinkCart
+      bindings:
+        sinkCart-in-0:
+          destination: cart
+          consumer:
+            use-native-decoding: true
+      kafka:
+        streams:
+          binder:
+            application-id: cart-processor
+            brokers:
+            - localhost:19093
+            - localhost:19094
+            configuration:
+              schema.registry.url: http://localhost:8081              
+              default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+              default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+              default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
+              cart-materialized-as: cart-table
+            autoCreateTopics: false
+            autoAddPartitions: false
+          bindings:
+            sinkCart-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            sinkCart-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+  application:
+    name: cart-processor

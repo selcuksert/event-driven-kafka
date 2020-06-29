@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class CartItem extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 7262133447240160162L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CartItem\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"accountId\",\"type\":\"long\"},{\"name\":\"itemId\",\"type\":\"long\"},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"size\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = 5314343827334702621L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CartItem\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"item\",\"type\":{\"type\":\"record\",\"name\":\"Item\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeImage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"size\",\"type\":{\"type\":\"enum\",\"name\":\"Size\",\"symbols\":[\"XS\",\"S\",\"M\",\"L\",\"XL\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -71,11 +71,9 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
     return DECODER.decode(b);
   }
 
-   private long id;
-   private long accountId;
-   private long itemId;
+   private com.corp.concepts.shop.models.Item item;
    private int quantity;
-   private java.lang.String size;
+   private com.corp.concepts.shop.models.Size size;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -86,16 +84,12 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
 
   /**
    * All-args constructor.
-   * @param id The new value for id
-   * @param accountId The new value for accountId
-   * @param itemId The new value for itemId
+   * @param item The new value for item
    * @param quantity The new value for quantity
    * @param size The new value for size
    */
-  public CartItem(java.lang.Long id, java.lang.Long accountId, java.lang.Long itemId, java.lang.Integer quantity, java.lang.String size) {
-    this.id = id;
-    this.accountId = accountId;
-    this.itemId = itemId;
+  public CartItem(com.corp.concepts.shop.models.Item item, java.lang.Integer quantity, com.corp.concepts.shop.models.Size size) {
+    this.item = item;
     this.quantity = quantity;
     this.size = size;
   }
@@ -105,11 +99,9 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return id;
-    case 1: return accountId;
-    case 2: return itemId;
-    case 3: return quantity;
-    case 4: return size;
+    case 0: return item;
+    case 1: return quantity;
+    case 2: return size;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -118,64 +110,28 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.Long)value$; break;
-    case 1: accountId = (java.lang.Long)value$; break;
-    case 2: itemId = (java.lang.Long)value$; break;
-    case 3: quantity = (java.lang.Integer)value$; break;
-    case 4: size = value$ != null ? value$.toString() : null; break;
+    case 0: item = (com.corp.concepts.shop.models.Item)value$; break;
+    case 1: quantity = (java.lang.Integer)value$; break;
+    case 2: size = (com.corp.concepts.shop.models.Size)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   /**
-   * Gets the value of the 'id' field.
-   * @return The value of the 'id' field.
+   * Gets the value of the 'item' field.
+   * @return The value of the 'item' field.
    */
-  public long getId() {
-    return id;
+  public com.corp.concepts.shop.models.Item getItem() {
+    return item;
   }
 
 
   /**
-   * Sets the value of the 'id' field.
+   * Sets the value of the 'item' field.
    * @param value the value to set.
    */
-  public void setId(long value) {
-    this.id = value;
-  }
-
-  /**
-   * Gets the value of the 'accountId' field.
-   * @return The value of the 'accountId' field.
-   */
-  public long getAccountId() {
-    return accountId;
-  }
-
-
-  /**
-   * Sets the value of the 'accountId' field.
-   * @param value the value to set.
-   */
-  public void setAccountId(long value) {
-    this.accountId = value;
-  }
-
-  /**
-   * Gets the value of the 'itemId' field.
-   * @return The value of the 'itemId' field.
-   */
-  public long getItemId() {
-    return itemId;
-  }
-
-
-  /**
-   * Sets the value of the 'itemId' field.
-   * @param value the value to set.
-   */
-  public void setItemId(long value) {
-    this.itemId = value;
+  public void setItem(com.corp.concepts.shop.models.Item value) {
+    this.item = value;
   }
 
   /**
@@ -199,7 +155,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'size' field.
    * @return The value of the 'size' field.
    */
-  public java.lang.String getSize() {
+  public com.corp.concepts.shop.models.Size getSize() {
     return size;
   }
 
@@ -208,7 +164,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'size' field.
    * @param value the value to set.
    */
-  public void setSize(java.lang.String value) {
+  public void setSize(com.corp.concepts.shop.models.Size value) {
     this.size = value;
   }
 
@@ -253,11 +209,10 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<CartItem>
     implements org.apache.avro.data.RecordBuilder<CartItem> {
 
-    private long id;
-    private long accountId;
-    private long itemId;
+    private com.corp.concepts.shop.models.Item item;
+    private com.corp.concepts.shop.models.Item.Builder itemBuilder;
     private int quantity;
-    private java.lang.String size;
+    private com.corp.concepts.shop.models.Size size;
 
     /** Creates a new Builder */
     private Builder() {
@@ -270,25 +225,20 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
      */
     private Builder(com.corp.concepts.shop.models.CartItem.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.item)) {
+        this.item = data().deepCopy(fields()[0].schema(), other.item);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.accountId)) {
-        this.accountId = data().deepCopy(fields()[1].schema(), other.accountId);
+      if (other.hasItemBuilder()) {
+        this.itemBuilder = com.corp.concepts.shop.models.Item.newBuilder(other.getItemBuilder());
+      }
+      if (isValidValue(fields()[1], other.quantity)) {
+        this.quantity = data().deepCopy(fields()[1].schema(), other.quantity);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.itemId)) {
-        this.itemId = data().deepCopy(fields()[2].schema(), other.itemId);
+      if (isValidValue(fields()[2], other.size)) {
+        this.size = data().deepCopy(fields()[2].schema(), other.size);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
-      }
-      if (isValidValue(fields()[3], other.quantity)) {
-        this.quantity = data().deepCopy(fields()[3].schema(), other.quantity);
-        fieldSetFlags()[3] = other.fieldSetFlags()[3];
-      }
-      if (isValidValue(fields()[4], other.size)) {
-        this.size = data().deepCopy(fields()[4].schema(), other.size);
-        fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
     }
 
@@ -298,142 +248,93 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
      */
     private Builder(com.corp.concepts.shop.models.CartItem other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.item)) {
+        this.item = data().deepCopy(fields()[0].schema(), other.item);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.accountId)) {
-        this.accountId = data().deepCopy(fields()[1].schema(), other.accountId);
+      this.itemBuilder = null;
+      if (isValidValue(fields()[1], other.quantity)) {
+        this.quantity = data().deepCopy(fields()[1].schema(), other.quantity);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.itemId)) {
-        this.itemId = data().deepCopy(fields()[2].schema(), other.itemId);
+      if (isValidValue(fields()[2], other.size)) {
+        this.size = data().deepCopy(fields()[2].schema(), other.size);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.quantity)) {
-        this.quantity = data().deepCopy(fields()[3].schema(), other.quantity);
-        fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.size)) {
-        this.size = data().deepCopy(fields()[4].schema(), other.size);
-        fieldSetFlags()[4] = true;
-      }
     }
 
     /**
-      * Gets the value of the 'id' field.
+      * Gets the value of the 'item' field.
       * @return The value.
       */
-    public long getId() {
-      return id;
+    public com.corp.concepts.shop.models.Item getItem() {
+      return item;
     }
 
 
     /**
-      * Sets the value of the 'id' field.
-      * @param value The value of 'id'.
+      * Sets the value of the 'item' field.
+      * @param value The value of 'item'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.CartItem.Builder setId(long value) {
+    public com.corp.concepts.shop.models.CartItem.Builder setItem(com.corp.concepts.shop.models.Item value) {
       validate(fields()[0], value);
-      this.id = value;
+      this.itemBuilder = null;
+      this.item = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'id' field has been set.
-      * @return True if the 'id' field has been set, false otherwise.
+      * Checks whether the 'item' field has been set.
+      * @return True if the 'item' field has been set, false otherwise.
       */
-    public boolean hasId() {
+    public boolean hasItem() {
       return fieldSetFlags()[0];
     }
 
+    /**
+     * Gets the Builder instance for the 'item' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public com.corp.concepts.shop.models.Item.Builder getItemBuilder() {
+      if (itemBuilder == null) {
+        if (hasItem()) {
+          setItemBuilder(com.corp.concepts.shop.models.Item.newBuilder(item));
+        } else {
+          setItemBuilder(com.corp.concepts.shop.models.Item.newBuilder());
+        }
+      }
+      return itemBuilder;
+    }
 
     /**
-      * Clears the value of the 'id' field.
+     * Sets the Builder instance for the 'item' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+    public com.corp.concepts.shop.models.CartItem.Builder setItemBuilder(com.corp.concepts.shop.models.Item.Builder value) {
+      clearItem();
+      itemBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'item' field has an active Builder instance
+     * @return True if the 'item' field has an active Builder instance
+     */
+    public boolean hasItemBuilder() {
+      return itemBuilder != null;
+    }
+
+    /**
+      * Clears the value of the 'item' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.CartItem.Builder clearId() {
+    public com.corp.concepts.shop.models.CartItem.Builder clearItem() {
+      item = null;
+      itemBuilder = null;
       fieldSetFlags()[0] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'accountId' field.
-      * @return The value.
-      */
-    public long getAccountId() {
-      return accountId;
-    }
-
-
-    /**
-      * Sets the value of the 'accountId' field.
-      * @param value The value of 'accountId'.
-      * @return This builder.
-      */
-    public com.corp.concepts.shop.models.CartItem.Builder setAccountId(long value) {
-      validate(fields()[1], value);
-      this.accountId = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'accountId' field has been set.
-      * @return True if the 'accountId' field has been set, false otherwise.
-      */
-    public boolean hasAccountId() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'accountId' field.
-      * @return This builder.
-      */
-    public com.corp.concepts.shop.models.CartItem.Builder clearAccountId() {
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'itemId' field.
-      * @return The value.
-      */
-    public long getItemId() {
-      return itemId;
-    }
-
-
-    /**
-      * Sets the value of the 'itemId' field.
-      * @param value The value of 'itemId'.
-      * @return This builder.
-      */
-    public com.corp.concepts.shop.models.CartItem.Builder setItemId(long value) {
-      validate(fields()[2], value);
-      this.itemId = value;
-      fieldSetFlags()[2] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'itemId' field has been set.
-      * @return True if the 'itemId' field has been set, false otherwise.
-      */
-    public boolean hasItemId() {
-      return fieldSetFlags()[2];
-    }
-
-
-    /**
-      * Clears the value of the 'itemId' field.
-      * @return This builder.
-      */
-    public com.corp.concepts.shop.models.CartItem.Builder clearItemId() {
-      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -452,9 +353,9 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       * @return This builder.
       */
     public com.corp.concepts.shop.models.CartItem.Builder setQuantity(int value) {
-      validate(fields()[3], value);
+      validate(fields()[1], value);
       this.quantity = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -463,7 +364,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       * @return True if the 'quantity' field has been set, false otherwise.
       */
     public boolean hasQuantity() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[1];
     }
 
 
@@ -472,7 +373,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       * @return This builder.
       */
     public com.corp.concepts.shop.models.CartItem.Builder clearQuantity() {
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -480,7 +381,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'size' field.
       * @return The value.
       */
-    public java.lang.String getSize() {
+    public com.corp.concepts.shop.models.Size getSize() {
       return size;
     }
 
@@ -490,10 +391,10 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'size'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.CartItem.Builder setSize(java.lang.String value) {
-      validate(fields()[4], value);
+    public com.corp.concepts.shop.models.CartItem.Builder setSize(com.corp.concepts.shop.models.Size value) {
+      validate(fields()[2], value);
       this.size = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -502,7 +403,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       * @return True if the 'size' field has been set, false otherwise.
       */
     public boolean hasSize() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[2];
     }
 
 
@@ -512,7 +413,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       */
     public com.corp.concepts.shop.models.CartItem.Builder clearSize() {
       size = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -521,11 +422,18 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
     public CartItem build() {
       try {
         CartItem record = new CartItem();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.Long) defaultValue(fields()[0]);
-        record.accountId = fieldSetFlags()[1] ? this.accountId : (java.lang.Long) defaultValue(fields()[1]);
-        record.itemId = fieldSetFlags()[2] ? this.itemId : (java.lang.Long) defaultValue(fields()[2]);
-        record.quantity = fieldSetFlags()[3] ? this.quantity : (java.lang.Integer) defaultValue(fields()[3]);
-        record.size = fieldSetFlags()[4] ? this.size : (java.lang.String) defaultValue(fields()[4]);
+        if (itemBuilder != null) {
+          try {
+            record.item = this.itemBuilder.build();
+          } catch (org.apache.avro.AvroMissingFieldException e) {
+            e.addParentField(record.getSchema().getField("item"));
+            throw e;
+          }
+        } else {
+          record.item = fieldSetFlags()[0] ? this.item : (com.corp.concepts.shop.models.Item) defaultValue(fields()[0]);
+        }
+        record.quantity = fieldSetFlags()[1] ? this.quantity : (java.lang.Integer) defaultValue(fields()[1]);
+        record.size = fieldSetFlags()[2] ? this.size : (com.corp.concepts.shop.models.Size) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -558,15 +466,11 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
-    out.writeLong(this.id);
-
-    out.writeLong(this.accountId);
-
-    out.writeLong(this.itemId);
+    this.item.customEncode(out);
 
     out.writeInt(this.quantity);
 
-    out.writeString(this.size);
+    out.writeEnum(this.size.ordinal());
 
   }
 
@@ -575,37 +479,31 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.id = in.readLong();
-
-      this.accountId = in.readLong();
-
-      this.itemId = in.readLong();
+      if (this.item == null) {
+        this.item = new com.corp.concepts.shop.models.Item();
+      }
+      this.item.customDecode(in);
 
       this.quantity = in.readInt();
 
-      this.size = in.readString();
+      this.size = com.corp.concepts.shop.models.Size.values()[in.readEnum()];
 
     } else {
-      for (int i = 0; i < 5; i++) {
+      for (int i = 0; i < 3; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.id = in.readLong();
+          if (this.item == null) {
+            this.item = new com.corp.concepts.shop.models.Item();
+          }
+          this.item.customDecode(in);
           break;
 
         case 1:
-          this.accountId = in.readLong();
-          break;
-
-        case 2:
-          this.itemId = in.readLong();
-          break;
-
-        case 3:
           this.quantity = in.readInt();
           break;
 
-        case 4:
-          this.size = in.readString();
+        case 2:
+          this.size = com.corp.concepts.shop.models.Size.values()[in.readEnum()];
           break;
 
         default:

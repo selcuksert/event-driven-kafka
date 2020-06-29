@@ -48,20 +48,14 @@
   "name" : "CartItem",
   "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
-    "name" : "id",
-    "type" : "long"
-  }, {
-    "name" : "accountId",
-    "type" : "long"
-  }, {
-    "name" : "itemId",
-    "type" : "long"
+    "name" : "item",
+    "type" : "Item"
   }, {
     "name" : "quantity",
     "type" : "int"
   }, {
     "name" : "size",
-    "type" : "string"
+    "type" : "Size"
   } ]
 }, {
   "type" : "record",
@@ -95,6 +89,9 @@
   "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "id",
+    "type" : "long"
+  }, {
+    "name" : "customerId",
     "type" : "long"
   }, {
     "name" : "email",
@@ -165,13 +162,13 @@
   "name" : "Cart",
   "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
-    "name" : "id",
+    "name" : "customerId",
     "type" : "long"
   }, {
     "name" : "cartItems",
     "type" : {
       "type" : "array",
-      "items" : "long"
+      "items" : "CartItem"
     }
   } ]
 } ]

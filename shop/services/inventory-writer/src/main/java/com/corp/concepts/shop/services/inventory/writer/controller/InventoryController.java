@@ -16,17 +16,17 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/inventory")
 public class InventoryController {
 
-	private final InventoryGenerator inventoryService;
+	private final InventoryGenerator inventoryGenerator;
 
-	public InventoryController(InventoryGenerator inventoryService) {
-		this.inventoryService = inventoryService;
+	public InventoryController(InventoryGenerator inventoryGenerator) {
+		this.inventoryGenerator = inventoryGenerator;
 	}
 
 	@PostMapping
 	@ResponseBody
 	public String sendInventoryMessage(@RequestBody Inventory inventory) {
 		try {
-			this.inventoryService.sendInventoryMessage(inventory);
+			this.inventoryGenerator.sendInventoryMessage(inventory);
 			return inventory.toString();
 		} catch (Exception e) {
 			log.error("Error during sending message to broker:", e);
