@@ -1,0 +1,33 @@
+debug: true
+logging:
+  #file:    #name: app.log
+  level:    root: info
+    org.apache.kafka: info
+server: 
+  port: 9002
+spring:
+  cloud:    stream:
+      function:        definition: sinkItem
+      bindings:
+        sinkItem-in-0:
+          destination: items
+          consumer:
+            use-native-decoding: true
+      kafka:
+        streams:
+          binder:
+            application-id: item-reader
+            brokers:
+            - localhost:19093
+            - localhost:19094
+            configuration:
+              schema.registry.url: http://localhost:8081              
+              default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+              default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+              default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
+              item-materialized-as: item-table              
+            autoCreateTopics: false
+            autoAddPartitions: false
+          bindings:
+            sinkItem-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            sinkItem-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde

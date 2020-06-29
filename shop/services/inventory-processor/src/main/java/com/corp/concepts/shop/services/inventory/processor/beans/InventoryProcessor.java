@@ -8,7 +8,6 @@ import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.kafka.support.KafkaNull;
 import org.springframework.stereotype.Component;
 
 import com.corp.concepts.shop.models.Inventory;
@@ -20,23 +19,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j(topic = "Inventory Processor Logger")
 public class InventoryProcessor {
 
-	@Value("${spring.cloud.stream.kafka.streams.binder.configuration.item-materialized-as}")
-	private String itemTable;
-
 	@Value("${spring.cloud.stream.kafka.streams.binder.configuration.inventory-materialized-as}")
 	private String inventoryTable;
 
 	@Bean
 	public Function<KStream<Long, Item>, KStream<Long, Inventory>> processItem() {
-		return input -> input.peek((key, item) -> log.info("key: {} | item: {}", key, item))
-				.toTable(Materialized.as(itemTable)).toStream().map((key, item) -> {
-					if (item == null) {
-						// Tombstone message for item. 
-						// Remove inventory also with another tombstone message
-						return new KeyValue<>(key, null);
-					}
-					return new KeyValue<>(key, new Inventory(key, 0));
-				});
+		return input -> input.peek((key, item) -> log.info("key: {} | item: {}", key, item)).map((key, item) -> {
+			if (item == null) {
+				// Tombstone message for item.
+				// Remove inventory also with another tombstone message
+				return new KeyValue<>(key, null);
+			}
+			return new KeyValue<>(key, new Inventory(key, 0));
+		});
 	}
 
 	@Bean

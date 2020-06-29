@@ -32,7 +32,6 @@ spring:
               default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
               default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
               inventory-materialized-as: inventory-table
-              item-materialized-as: item-table              
             autoCreateTopics: false
             autoAddPartitions: false
           bindings:

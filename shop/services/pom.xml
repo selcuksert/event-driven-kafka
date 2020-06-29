@@ -15,6 +15,7 @@
 
 	<modules>
 		<module>item-writer</module>
+		<module>item-reader</module>
 		<module>inventory-processor</module>
 		<module>inventory-writer</module>
 	</modules>
