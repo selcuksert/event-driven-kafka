@@ -1,5 +1,7 @@
 package com.turkishairlines.concepts.shop.services.cart.writer.controller;
 
+import java.util.Calendar;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +31,7 @@ public class CartController {
 	@ResponseBody
 	public String addCartMessage(@RequestBody Cart cart) {
 		try {
+			cart.setTimestamp(Calendar.getInstance().getTimeInMillis());
 			this.cartMessageGenerator.addCartMessage(cart);
 			return cart.toString();
 		} catch (Exception e) {

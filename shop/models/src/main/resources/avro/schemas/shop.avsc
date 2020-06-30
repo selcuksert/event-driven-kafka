@@ -162,6 +162,9 @@
   "name" : "Cart",
   "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
+    "name" : "timestamp",
+    "type" : "long"
+  }, {
     "name" : "customerId",
     "type" : "long"
   }, {

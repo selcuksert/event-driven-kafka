@@ -7,6 +7,7 @@
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
+import { SERVICES } from './app.js';
 
 export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
 export const REQUEST_CATEGORY_ITEMS = 'REQUEST_CATEGORY_ITEMS';
@@ -60,7 +61,7 @@ export const fetchCategoryItemsIfNeeded = (category) => (dispatch, getState) => 
   if (category && category.name && !category.items && !category.isFetching) {
     dispatch(requestCategoryItems(category.name));
     // fetch items per-category from item-reader service
-    return fetch(`${window.location.protocol}//${window.location.hostname}:9002/items/category?name=${category.name}`)
+    return fetch(`${window.location.protocol}//${window.location.hostname}:${SERVICES.items.reader.port}/${SERVICES.items.reader.path}/category?name=${category.name}`)
       .then(res => res.json())
       .then(items => dispatch(receiveCategoryItems(category.name, items)))
       .catch(() => dispatch(failCategoryItems(category.name)));

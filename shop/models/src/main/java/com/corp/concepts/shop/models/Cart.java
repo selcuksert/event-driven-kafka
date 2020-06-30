@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Cart extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 2783264539143768374L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Cart\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"customerId\",\"type\":\"long\"},{\"name\":\"cartItems\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CartItem\",\"fields\":[{\"name\":\"item\",\"type\":{\"type\":\"record\",\"name\":\"Item\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeImage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"size\",\"type\":{\"type\":\"enum\",\"name\":\"Size\",\"symbols\":[\"XS\",\"S\",\"M\",\"L\",\"XL\"]}}]}}}]}");
+  private static final long serialVersionUID = -8747456467877709888L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Cart\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"customerId\",\"type\":\"long\"},{\"name\":\"cartItems\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CartItem\",\"fields\":[{\"name\":\"item\",\"type\":{\"type\":\"record\",\"name\":\"Item\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeImage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"size\",\"type\":{\"type\":\"enum\",\"name\":\"Size\",\"symbols\":[\"XS\",\"S\",\"M\",\"L\",\"XL\"]}}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -71,7 +71,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
     return DECODER.decode(b);
   }
 
-   private long id;
+   private long timestamp;
    private long customerId;
    private java.util.List<com.corp.concepts.shop.models.CartItem> cartItems;
 
@@ -84,12 +84,12 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
 
   /**
    * All-args constructor.
-   * @param id The new value for id
+   * @param timestamp The new value for timestamp
    * @param customerId The new value for customerId
    * @param cartItems The new value for cartItems
    */
-  public Cart(java.lang.Long id, java.lang.Long customerId, java.util.List<com.corp.concepts.shop.models.CartItem> cartItems) {
-    this.id = id;
+  public Cart(java.lang.Long timestamp, java.lang.Long customerId, java.util.List<com.corp.concepts.shop.models.CartItem> cartItems) {
+    this.timestamp = timestamp;
     this.customerId = customerId;
     this.cartItems = cartItems;
   }
@@ -99,7 +99,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return id;
+    case 0: return timestamp;
     case 1: return customerId;
     case 2: return cartItems;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -110,7 +110,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.Long)value$; break;
+    case 0: timestamp = (java.lang.Long)value$; break;
     case 1: customerId = (java.lang.Long)value$; break;
     case 2: cartItems = (java.util.List<com.corp.concepts.shop.models.CartItem>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -118,20 +118,20 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
   /**
-   * Gets the value of the 'id' field.
-   * @return The value of the 'id' field.
+   * Gets the value of the 'timestamp' field.
+   * @return The value of the 'timestamp' field.
    */
-  public long getId() {
-    return id;
+  public long getTimestamp() {
+    return timestamp;
   }
 
 
   /**
-   * Sets the value of the 'id' field.
+   * Sets the value of the 'timestamp' field.
    * @param value the value to set.
    */
-  public void setId(long value) {
-    this.id = value;
+  public void setTimestamp(long value) {
+    this.timestamp = value;
   }
 
   /**
@@ -209,7 +209,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Cart>
     implements org.apache.avro.data.RecordBuilder<Cart> {
 
-    private long id;
+    private long timestamp;
     private long customerId;
     private java.util.List<com.corp.concepts.shop.models.CartItem> cartItems;
 
@@ -224,8 +224,8 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
      */
     private Builder(com.corp.concepts.shop.models.Cart.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.timestamp)) {
+        this.timestamp = data().deepCopy(fields()[0].schema(), other.timestamp);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
       if (isValidValue(fields()[1], other.customerId)) {
@@ -244,8 +244,8 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
      */
     private Builder(com.corp.concepts.shop.models.Cart other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.timestamp)) {
+        this.timestamp = data().deepCopy(fields()[0].schema(), other.timestamp);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.customerId)) {
@@ -259,40 +259,40 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
     }
 
     /**
-      * Gets the value of the 'id' field.
+      * Gets the value of the 'timestamp' field.
       * @return The value.
       */
-    public long getId() {
-      return id;
+    public long getTimestamp() {
+      return timestamp;
     }
 
 
     /**
-      * Sets the value of the 'id' field.
-      * @param value The value of 'id'.
+      * Sets the value of the 'timestamp' field.
+      * @param value The value of 'timestamp'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Cart.Builder setId(long value) {
+    public com.corp.concepts.shop.models.Cart.Builder setTimestamp(long value) {
       validate(fields()[0], value);
-      this.id = value;
+      this.timestamp = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'id' field has been set.
-      * @return True if the 'id' field has been set, false otherwise.
+      * Checks whether the 'timestamp' field has been set.
+      * @return True if the 'timestamp' field has been set, false otherwise.
       */
-    public boolean hasId() {
+    public boolean hasTimestamp() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'id' field.
+      * Clears the value of the 'timestamp' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Cart.Builder clearId() {
+    public com.corp.concepts.shop.models.Cart.Builder clearTimestamp() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -381,7 +381,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
     public Cart build() {
       try {
         Cart record = new Cart();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.Long) defaultValue(fields()[0]);
+        record.timestamp = fieldSetFlags()[0] ? this.timestamp : (java.lang.Long) defaultValue(fields()[0]);
         record.customerId = fieldSetFlags()[1] ? this.customerId : (java.lang.Long) defaultValue(fields()[1]);
         record.cartItems = fieldSetFlags()[2] ? this.cartItems : (java.util.List<com.corp.concepts.shop.models.CartItem>) defaultValue(fields()[2]);
         return record;
@@ -416,7 +416,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
-    out.writeLong(this.id);
+    out.writeLong(this.timestamp);
 
     out.writeLong(this.customerId);
 
@@ -440,7 +440,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.id = in.readLong();
+      this.timestamp = in.readLong();
 
       this.customerId = in.readLong();
 
@@ -466,7 +466,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
       for (int i = 0; i < 3; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.id = in.readLong();
+          this.timestamp = in.readLong();
           break;
 
         case 1:

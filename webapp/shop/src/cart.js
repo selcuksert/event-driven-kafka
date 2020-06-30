@@ -8,42 +8,59 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import { setCart } from './actions/cart.js';
+import { setCart, getEntryId } from './actions/cart.js';
+import { SERVICES } from './actions/app.js';
 
-const CART_LOCAL_STORAGE_KEY = 'shop-cart-data';
+/**
+ * Converts Kafka event data schema for 
+ * cart module to UI data schema
+ * @param {Array} items Server response
+ */
+function convertToUIData(items) {
+  let uiCartData = new Object();
 
-function getCartData() {
-  const localCartData = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
+  if (items && items.cartItems) {
+    let cartItemData = items.cartItems;
 
-  return fetch(`${window.location.protocol}//${window.location.hostname}:9005/cart?customerId=1`)
-      .then(res => res.json())
-      .then(items => JSON.stringify(items))
-      .catch(() => {});
+    cartItemData.forEach(cartItem => {
+      var itemId = getEntryId(cartItem);
+      uiCartData[itemId] = {
+        item: cartItem.item,
+        quantity: cartItem.quantity,
+        size: cartItem.size
+      }
+    }
+    );
+
+    return uiCartData;
+  }
 }
 
 export function installCart(store) {
-  function handleStorageEvent(event) {
-    // Note: In IE11 the storage event fires even when the modification is in the same window.
-    // So here we check to make sure the window receving the event is inactive.
-    if (event == null || document.hidden) {
-      store.dispatch(setCart(getCartData()));
-    }
-  }
-  window.addEventListener('storage', handleStorageEvent);
-  handleStorageEvent();
+
+  getCartData();
 
   store.subscribe(() => {
     const state = store.getState();
+    console.log("sendAddCartRequest:", state);
     sendAddCartRequest(state.cart);
   });
 
+  function getCartData() {
+    console.log("getCartData");
+    fetch(`${window.location.protocol}//${window.location.hostname}:${SERVICES.cart.reader.port}/${SERVICES.cart.reader.path}?customerId=1`)
+      .then(res => res.json())
+      .then(items => store.dispatch(setCart(convertToUIData(items))))
+      .catch(() => { });
+  }
+
   function sendAddCartRequest(cart) {
-    if(undefined === cart) {
+    if (undefined === cart) {
       return;
     }
-    
+
     let cartValues = Object.values(cart);
-    
+
     let cartItemList = new Array();
 
     cartValues.forEach(cartItem => {
@@ -56,12 +73,10 @@ export function installCart(store) {
 
     let addCartRequestBody = {
       customerId: 1,
-      cartItems: cartItemList 
+      cartItems: cartItemList
     }
 
-    console.log(addCartRequestBody);
-
-    fetch(`${window.location.protocol}//${window.location.hostname}:9004/cart`, {
+    fetch(`${window.location.protocol}//${window.location.hostname}:${SERVICES.cart.writer.port}/${SERVICES.cart.writer.path}`, {
       method: 'POST',
       body: JSON.stringify(addCartRequestBody),
       headers: {

@@ -20,6 +20,29 @@ export const UPDATE_NETWORK_STATUS = 'UPDATE_NETWORK_STATUS';
 export const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
 export const UPDATE_DRAWER_STATE = 'UPDATE_DRAWER_STATE';
 
+export const SERVICES = {
+  cart: {
+    reader: {
+      port: 9005,
+      path: "cart"
+    },
+    writer: {
+      port: 9004,
+      path: "cart"
+    }
+  },
+  items: {
+    reader: {
+      port: 9002,
+      path: "items"
+    },
+    writer: {
+      port: 9001,
+      path: "items"
+    }
+  },
+}
+
 export const reloadCategory = () => async (dispatch, getState) => {
   let state = getState();
   const page = state.app.page;
