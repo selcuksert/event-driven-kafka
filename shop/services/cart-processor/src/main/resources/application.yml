@@ -20,7 +20,7 @@ spring:
       kafka:
         streams:
           binder:
-            application-id: cart-processor
+            applicationId: cart-processor
             brokers:
             - localhost:19093
             - localhost:19094
@@ -29,6 +29,7 @@ spring:
               default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
               default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
               default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
+              processing.guarantee: exactly_once
               cart-materialized-as: cart-table
             autoCreateTopics: false
             autoAddPartitions: false

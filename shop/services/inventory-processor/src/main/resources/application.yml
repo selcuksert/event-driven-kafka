@@ -6,6 +6,8 @@ logging:
 server: 
   port: 9000
 spring:
+  application:
+    name: inventory-processor
   cloud:    stream:
       function:        definition: processItem, sinkInventory
       bindings:
@@ -22,7 +24,7 @@ spring:
       kafka:
         streams:
           binder:
-            application-id: inventory-processor
+            applicationId: ${spring.application.name}-stream
             brokers:
             - localhost:19093
             - localhost:19094
@@ -32,6 +34,7 @@ spring:
               default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
               default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
               inventory-materialized-as: inventory-table
+              processing.guarantee: exactly_once
             autoCreateTopics: false
             autoAddPartitions: false
           bindings:
@@ -40,4 +43,5 @@ spring:
             processItem-out-0.producer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
             processItem-out-0.producer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
             sinkInventory-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
-            sinkInventory-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde  application:    name: inventory-processor
+            sinkInventory-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+            sinkInventory-in-0.consumer.applicationId: ${spring.application.name}-reader
