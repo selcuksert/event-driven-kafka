@@ -1,6 +1,8 @@
 package com.turkishairlines.concepts.shop.services.cart.writer.source;
 
-import org.springframework.cloud.stream.messaging.Source;
+import java.util.function.Supplier;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.kafka.support.KafkaNull;
 import org.springframework.messaging.Message;
@@ -10,22 +12,20 @@ import org.springframework.stereotype.Service;
 import com.corp.concepts.shop.models.Cart;
 
 import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.EmitterProcessor;
+import reactor.core.publisher.Flux;
 
 @Service
 @Slf4j(topic = "Cart Message Generator Logger")
 public class CartMessageGenerator {
 
-	private Source source;
-
-	public CartMessageGenerator(Source source) {
-		this.source = source;
-	}
+	private final EmitterProcessor<Message<?>> processor = EmitterProcessor.create();
 
 	public void addCartMessage(Cart cart) {
 		Message<Cart> message = MessageBuilder.withPayload(cart)
 				.setHeader(KafkaHeaders.MESSAGE_KEY, cart.getCustomerId()).build();
 
-		source.output().send(message);
+		processor.onNext(message);
 
 		log.info("Message sent");
 	}
@@ -35,9 +35,14 @@ public class CartMessageGenerator {
 		Message<KafkaNull> message = MessageBuilder.withPayload(KafkaNull.INSTANCE)
 				.setHeader(KafkaHeaders.MESSAGE_KEY, customerId).build();
 
-		source.output().send(message);
+		processor.onNext(message);
 
 		log.info("Message sent");
+	}
+
+	@Bean
+	public Supplier<Flux<?>> output() {
+		return () -> processor;
 	}
 
 }

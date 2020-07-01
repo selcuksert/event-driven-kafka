@@ -4,6 +4,8 @@ server:
 spring:
   cloud:
     stream:
+      function:
+        definition: output
       kafka:
         binder:
           autoCreateTopics: false
@@ -16,7 +18,7 @@ spring:
             value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
             schema.registry.url: http://localhost:8081
       bindings:
-        output:
+        output-out-0:
           destination: cart
           content-type: application/*+avro
           producer:
