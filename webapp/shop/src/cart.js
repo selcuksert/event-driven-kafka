@@ -42,12 +42,10 @@ export function installCart(store) {
 
   store.subscribe(() => {
     const state = store.getState();
-    console.log("sendAddCartRequest:", state);
     sendAddCartRequest(state.cart);
   });
 
   function getCartData() {
-    console.log("getCartData");
     fetch(`${window.location.protocol}//${window.location.hostname}:${SERVICES.cart.reader.port}/${SERVICES.cart.reader.path}?customerId=1`)
       .then(res => res.json())
       .then(items => store.dispatch(setCart(convertToUIData(items))))
