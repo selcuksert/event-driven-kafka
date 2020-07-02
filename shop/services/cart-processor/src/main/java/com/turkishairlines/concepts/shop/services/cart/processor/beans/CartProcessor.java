@@ -1,6 +1,6 @@
 package com.turkishairlines.concepts.shop.services.cart.processor.beans;
 
-import java.util.function.Consumer;
+import java.util.function.BiConsumer;
 
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Materialized;
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import com.corp.concepts.shop.models.Cart;
+import com.corp.concepts.shop.models.Item;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,10 +20,17 @@ public class CartProcessor {
 	@Value("${spring.cloud.stream.kafka.streams.binder.configuration.cart-materialized-as}")
 	private String cartTable;
 
-	@Bean
-	public Consumer<KStream<Long, Cart>> sinkCart() {
-		return input -> input.peek((key, cart) -> log.info("key: {} | cart: {}", key, cart))
-				.toTable(Materialized.as(cartTable)).toStream();
-	}
+	@Value("${spring.cloud.stream.kafka.streams.binder.configuration.item-materialized-as}")
+	private String itemTable;
 
+	@Bean
+	public BiConsumer<KStream<Long, Cart>, KStream<Long, Item>> processCart() {
+		return (cartStream, itemStream) -> {
+			cartStream.peek((key, cart) -> log.info("key: {} | cart: {}", key, cart))
+					.toTable(Materialized.as(cartTable)).toStream();
+
+			itemStream.peek((key, item) -> log.info("key: {} | item: {}", key, item))
+					.toTable(Materialized.as(itemTable)).toStream();
+		};
+	}
 }

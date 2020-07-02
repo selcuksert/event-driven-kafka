@@ -8,19 +8,28 @@ logging:
 server: 
   port: 9005
 spring:
+  application:
+    name: cart-processor
   cloud:
     stream:
       function:
-        definition: sinkCart
+        definition: processCart
       bindings:
-        sinkCart-in-0:
+        processCart-in-0:
           destination: cart
+          consumer:
+            use-native-decoding: true
+        processCart-in-1:
+          destination: items
           consumer:
             use-native-decoding: true
       kafka:
         streams:
           binder:
-            applicationId: cart-processor
+            functions:
+              processCart:
+                application-id: ${spring.application.name}-processCart
+            applicationId: ${spring.application.name}-stream
             brokers:
             - localhost:19093
             - localhost:19094
@@ -31,10 +40,11 @@ spring:
               default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
               processing.guarantee: exactly_once
               cart-materialized-as: cart-table
+              item-materialized-as: cart-item-table
             autoCreateTopics: false
             autoAddPartitions: false
           bindings:
-            sinkCart-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
-            sinkCart-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
-  application:
-    name: cart-processor
+            processCart-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            processCart-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+            processCart-in-1.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            processCart-in-1.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde

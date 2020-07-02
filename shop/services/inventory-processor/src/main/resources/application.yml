@@ -24,6 +24,11 @@ spring:
       kafka:
         streams:
           binder:
+            functions:
+              sinkInventory:
+                application-id: ${spring.application.name}-reader
+              processItem:
+                application-id: ${spring.application.name}-item
             applicationId: ${spring.application.name}-stream
             brokers:
             - localhost:19093
@@ -44,4 +49,3 @@ spring:
             processItem-out-0.producer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
             sinkInventory-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
             sinkInventory-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
-            sinkInventory-in-0.consumer.applicationId: ${spring.application.name}-reader
