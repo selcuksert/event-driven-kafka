@@ -49,7 +49,7 @@ public class ItemController {
 			}
 
 		} catch (Exception e) {
-			log.error("Error when sending message to broker:", e);
+			log.error("Error when getting data:", e);
 			return "Error occured. Please try again later.";
 		}
 
