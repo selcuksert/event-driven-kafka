@@ -22,7 +22,7 @@ spring:
             - localhost:19094
             configuration:
               schema.registry.url: http://localhost:8081              
-              default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+              default.key.serde: org.apache.kafka.common.serialization.Serdes$LongSerde
               default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
               default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
               processing.guarantee: exactly_once
@@ -30,5 +30,5 @@ spring:
             autoCreateTopics: false
             autoAddPartitions: false
           bindings:
-            sinkItem-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            sinkItem-in-0.consumer.keySerde: org.apache.kafka.common.serialization.Serdes$LongSerde
             sinkItem-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde  application:    name: item-reader

@@ -35,7 +35,7 @@ spring:
             - localhost:19094
             configuration:
               schema.registry.url: http://localhost:8081              
-              default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+              default.key.serde: org.apache.kafka.common.serialization.Serdes$LongSerde
               default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
               default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
               inventory-materialized-as: inventory-table
@@ -43,9 +43,9 @@ spring:
             autoCreateTopics: false
             autoAddPartitions: false
           bindings:
-            processItem-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            processItem-in-0.consumer.keySerde: org.apache.kafka.common.serialization.Serdes$LongSerde
             processItem-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
-            processItem-out-0.producer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            processItem-out-0.producer.keySerde: org.apache.kafka.common.serialization.Serdes$LongSerde
             processItem-out-0.producer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
-            sinkInventory-in-0.consumer.keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+            sinkInventory-in-0.consumer.keySerde: org.apache.kafka.common.serialization.Serdes$LongSerde
             sinkInventory-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
