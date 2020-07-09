@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.item.reader.beans;
+package com.corp.concepts.shop.services.item.processor.beans;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -41,9 +41,11 @@ public class ItemProcessor {
 		return input -> input.map((key, item) -> {
 			ItemDb itemDb = null;
 			try {
-				itemDb = new ItemDb(item.getId(), item.getName(), item.getTitle(), item.getCategory(),
-						item.getPrice(), item.getDescription(), item.getImage(), item.getLargeImage(),
-						objectMapper.writeValueAsString(item.getFeatures()));
+				if (item != null) {
+					itemDb = new ItemDb(item.getId(), item.getName(), item.getTitle(), item.getCategory(),
+							item.getPrice(), item.getDescription(), item.getImage(), item.getLargeimage(),
+							objectMapper.writeValueAsString(item.getFeatures()));
+				}
 			} catch (JsonProcessingException e) {
 				log.error("Error: ", e);
 			}

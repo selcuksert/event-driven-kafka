@@ -6,6 +6,13 @@ logging:
 server: 
   port: 9002
 spring:
+  jpa:    hibernate:      naming:        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    url: jdbc:postgresql://localhost:5432/kafkaconnect
+    username: dbuser
+    password: db1234
+    hikari:      connection-timeout: 5000
+      maximum-pool-size: 3
   cloud:    stream:
       function:        definition: sinkItem, sendToDbTopic
       bindings:
@@ -24,6 +31,11 @@ spring:
       kafka:
         streams:
           binder:
+            functions:
+              sinkItem:
+                application-id: ${spring.application.name}-sinkItem
+              sendToDbTopic:
+                application-id: ${spring.application.name}-sendToDbTopic
             applicationId: item-reader
             brokers:
             - localhost:19093

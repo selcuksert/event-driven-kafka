@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.item.reader;
+package com.corp.concepts.shop.services.item.processor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

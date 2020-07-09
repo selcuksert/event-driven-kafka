@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2947543904165579426L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ItemDb\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeImage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = 1399611059646758909L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ItemDb\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeimage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -78,7 +78,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
    private double price;
    private java.lang.String description;
    private java.lang.String image;
-   private java.lang.String largeImage;
+   private java.lang.String largeimage;
    private java.lang.String features;
 
   /**
@@ -97,10 +97,10 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
    * @param price The new value for price
    * @param description The new value for description
    * @param image The new value for image
-   * @param largeImage The new value for largeImage
+   * @param largeimage The new value for largeimage
    * @param features The new value for features
    */
-  public ItemDb(java.lang.Long id, java.lang.String name, java.lang.String title, java.lang.String category, java.lang.Double price, java.lang.String description, java.lang.String image, java.lang.String largeImage, java.lang.String features) {
+  public ItemDb(java.lang.Long id, java.lang.String name, java.lang.String title, java.lang.String category, java.lang.Double price, java.lang.String description, java.lang.String image, java.lang.String largeimage, java.lang.String features) {
     this.id = id;
     this.name = name;
     this.title = title;
@@ -108,7 +108,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
     this.price = price;
     this.description = description;
     this.image = image;
-    this.largeImage = largeImage;
+    this.largeimage = largeimage;
     this.features = features;
   }
 
@@ -124,7 +124,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
     case 4: return price;
     case 5: return description;
     case 6: return image;
-    case 7: return largeImage;
+    case 7: return largeimage;
     case 8: return features;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -141,7 +141,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
     case 4: price = (java.lang.Double)value$; break;
     case 5: description = value$ != null ? value$.toString() : null; break;
     case 6: image = value$ != null ? value$.toString() : null; break;
-    case 7: largeImage = value$ != null ? value$.toString() : null; break;
+    case 7: largeimage = value$ != null ? value$.toString() : null; break;
     case 8: features = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -267,20 +267,20 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   /**
-   * Gets the value of the 'largeImage' field.
-   * @return The value of the 'largeImage' field.
+   * Gets the value of the 'largeimage' field.
+   * @return The value of the 'largeimage' field.
    */
-  public java.lang.String getLargeImage() {
-    return largeImage;
+  public java.lang.String getLargeimage() {
+    return largeimage;
   }
 
 
   /**
-   * Sets the value of the 'largeImage' field.
+   * Sets the value of the 'largeimage' field.
    * @param value the value to set.
    */
-  public void setLargeImage(java.lang.String value) {
-    this.largeImage = value;
+  public void setLargeimage(java.lang.String value) {
+    this.largeimage = value;
   }
 
   /**
@@ -348,7 +348,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
     private double price;
     private java.lang.String description;
     private java.lang.String image;
-    private java.lang.String largeImage;
+    private java.lang.String largeimage;
     private java.lang.String features;
 
     /** Creates a new Builder */
@@ -390,8 +390,8 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
         this.image = data().deepCopy(fields()[6].schema(), other.image);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.largeImage)) {
-        this.largeImage = data().deepCopy(fields()[7].schema(), other.largeImage);
+      if (isValidValue(fields()[7], other.largeimage)) {
+        this.largeimage = data().deepCopy(fields()[7].schema(), other.largeimage);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
       }
       if (isValidValue(fields()[8], other.features)) {
@@ -434,8 +434,8 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
         this.image = data().deepCopy(fields()[6].schema(), other.image);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.largeImage)) {
-        this.largeImage = data().deepCopy(fields()[7].schema(), other.largeImage);
+      if (isValidValue(fields()[7], other.largeimage)) {
+        this.largeimage = data().deepCopy(fields()[7].schema(), other.largeimage);
         fieldSetFlags()[7] = true;
       }
       if (isValidValue(fields()[8], other.features)) {
@@ -723,41 +723,41 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
     }
 
     /**
-      * Gets the value of the 'largeImage' field.
+      * Gets the value of the 'largeimage' field.
       * @return The value.
       */
-    public java.lang.String getLargeImage() {
-      return largeImage;
+    public java.lang.String getLargeimage() {
+      return largeimage;
     }
 
 
     /**
-      * Sets the value of the 'largeImage' field.
-      * @param value The value of 'largeImage'.
+      * Sets the value of the 'largeimage' field.
+      * @param value The value of 'largeimage'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.ItemDb.Builder setLargeImage(java.lang.String value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setLargeimage(java.lang.String value) {
       validate(fields()[7], value);
-      this.largeImage = value;
+      this.largeimage = value;
       fieldSetFlags()[7] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'largeImage' field has been set.
-      * @return True if the 'largeImage' field has been set, false otherwise.
+      * Checks whether the 'largeimage' field has been set.
+      * @return True if the 'largeimage' field has been set, false otherwise.
       */
-    public boolean hasLargeImage() {
+    public boolean hasLargeimage() {
       return fieldSetFlags()[7];
     }
 
 
     /**
-      * Clears the value of the 'largeImage' field.
+      * Clears the value of the 'largeimage' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.ItemDb.Builder clearLargeImage() {
-      largeImage = null;
+    public com.corp.concepts.shop.models.ItemDb.Builder clearLargeimage() {
+      largeimage = null;
       fieldSetFlags()[7] = false;
       return this;
     }
@@ -814,7 +814,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
         record.price = fieldSetFlags()[4] ? this.price : (java.lang.Double) defaultValue(fields()[4]);
         record.description = fieldSetFlags()[5] ? this.description : (java.lang.String) defaultValue(fields()[5]);
         record.image = fieldSetFlags()[6] ? this.image : (java.lang.String) defaultValue(fields()[6]);
-        record.largeImage = fieldSetFlags()[7] ? this.largeImage : (java.lang.String) defaultValue(fields()[7]);
+        record.largeimage = fieldSetFlags()[7] ? this.largeimage : (java.lang.String) defaultValue(fields()[7]);
         record.features = fieldSetFlags()[8] ? this.features : (java.lang.String) defaultValue(fields()[8]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -862,7 +862,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
 
     out.writeString(this.image);
 
-    out.writeString(this.largeImage);
+    out.writeString(this.largeimage);
 
     out.writeString(this.features);
 
@@ -887,7 +887,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
 
       this.image = in.readString();
 
-      this.largeImage = in.readString();
+      this.largeimage = in.readString();
 
       this.features = in.readString();
 
@@ -923,7 +923,7 @@ public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implemen
           break;
 
         case 7:
-          this.largeImage = in.readString();
+          this.largeimage = in.readString();
           break;
 
         case 8:

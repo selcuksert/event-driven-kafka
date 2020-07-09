@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import com.corp.concepts.shop.models.Cart;
-import com.corp.concepts.shop.models.Item;
+import com.corp.concepts.shop.models.ItemDb;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +24,7 @@ public class CartProcessor {
 	private String itemTable;
 
 	@Bean
-	public BiConsumer<KStream<Long, Cart>, KStream<Long, Item>> processCart() {
+	public BiConsumer<KStream<Long, Cart>, KStream<Long, ItemDb>> processCart() {
 		return (cartStream, itemStream) -> {
 			cartStream.peek((key, cart) -> log.info("key: {} | cart: {}", key, cart))
 					.toTable(Materialized.as(cartTable)).toStream();

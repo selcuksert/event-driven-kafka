@@ -144,7 +144,7 @@ class ShopDetail extends connect(store)(PageViewElement) {
     </style>
 
     <div id="content" ?hidden="${this._failure || !this._item}">
-      <shop-image alt="${this._item.title}" src="${this._item.largeImage}"></shop-image>
+      <shop-image alt="${this._item.title}" src="${this._item.largeimage}"></shop-image>
       <div class="detail" has-content>
         <h1>${this._item.title}</h1>
         <div class="price">${this._item.price ? `$${this._item.price.toFixed(2)}` : null}</div>
@@ -181,7 +181,7 @@ class ShopDetail extends connect(store)(PageViewElement) {
           <p>${this._item ? unsafeHTML(this._unescapeText(this._item.description)) : null}</p>
           <h2>Features:</h2>
           <ul>
-            ${repeat(this._item.features, (i) => i.id, (i) => html`
+            ${repeat(JSON.parse(this._item.features), (i) => i.id, (i) => html`
             <li>${unsafeHTML(this._unescapeText(i))}</li>`)}
           </ul>
         </div>

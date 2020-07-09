@@ -34,7 +34,7 @@
     "name" : "image",
     "type" : "string"
   }, {
-    "name" : "largeImage",
+    "name" : "largeimage",
     "type" : "string"
   }, {
     "name" : "features",
@@ -69,7 +69,7 @@
     "name" : "image",
     "type" : "string"
   }, {
-    "name" : "largeImage",
+    "name" : "largeimage",
     "type" : "string"
   }, {
     "name" : "features",
@@ -81,7 +81,7 @@
   "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "item",
-    "type" : "Item"
+    "type" : "ItemDb"
   }, {
     "name" : "quantity",
     "type" : "int"

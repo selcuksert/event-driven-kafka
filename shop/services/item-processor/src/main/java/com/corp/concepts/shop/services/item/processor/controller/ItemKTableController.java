@@ -1,4 +1,4 @@
-package com.corp.concepts.shop.services.item.reader.controller;
+package com.corp.concepts.shop.services.item.processor.controller;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -24,14 +24,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/items")
-public class ItemController {
+@RequestMapping(value = "/ktable/items")
+public class ItemKTableController {
 	private InteractiveQueryService interactiveQueryService;
 
 	@Value("${spring.cloud.stream.kafka.streams.binder.configuration.item-materialized-as}")
 	private String itemTable;
 
-	public ItemController(InteractiveQueryService interactiveQueryService) {
+	public ItemKTableController(InteractiveQueryService interactiveQueryService) {
 		this.interactiveQueryService = interactiveQueryService;
 	}
 
