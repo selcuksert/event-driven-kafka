@@ -118,7 +118,7 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
     case 4: return town;
     case 5: return code;
     case 6: return country;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -133,7 +133,7 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
     case 4: town = value$ != null ? value$.toString() : null; break;
     case 5: code = value$ != null ? value$.toString() : null; break;
     case 6: country = value$ != null ? value$.toString() : null; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 

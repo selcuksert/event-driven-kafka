@@ -7,12 +7,20 @@ server:
   port: 9002
 spring:
   cloud:    stream:
-      function:        definition: sinkItem
+      function:        definition: sinkItem, sendToDbTopic
       bindings:
         sinkItem-in-0:
           destination: items
           consumer:
             use-native-decoding: true
+        sendToDbTopic-in-0:
+          destination: items
+          consumer:
+            use-native-decoding: true
+        sendToDbTopic-out-0:
+          destination: itemsdb
+          producer:
+            use-native-encoding: true
       kafka:
         streams:
           binder:
@@ -31,4 +39,8 @@ spring:
             autoAddPartitions: false
           bindings:
             sinkItem-in-0.consumer.keySerde: org.apache.kafka.common.serialization.Serdes$LongSerde
-            sinkItem-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde  application:    name: item-reader
+            sinkItem-in-0.consumer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde            sendToDbTopic-in-0.producer.keySerde: org.apache.kafka.common.serialization.Serdes$LongSerde
+            sendToDbTopic-in-0.producer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+            sendToDbTopic-out-0.producer.keySerde: org.apache.kafka.common.serialization.Serdes$LongSerde
+            sendToDbTopic-out-0.producer.valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+  application:    name: item-reader

@@ -8,9 +8,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.corp.concepts.shop.services</groupId>
-	<artifactId>item-reader</artifactId>
-	<name>item-reader</name>
-	<description>Item reader</description>
+	<artifactId>item-processor</artifactId>
+	<name>item-processor</name>
+	<description>Item processor</description>
 
 	<dependencies>
 		<dependency>

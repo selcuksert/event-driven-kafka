@@ -13,24 +13,24 @@ import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
-public class Item extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 7281823734164629704L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Item\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeImage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}");
+public class ItemDb extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -2947543904165579426L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ItemDb\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeImage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<Item> ENCODER =
-      new BinaryMessageEncoder<Item>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<ItemDb> ENCODER =
+      new BinaryMessageEncoder<ItemDb>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<Item> DECODER =
-      new BinaryMessageDecoder<Item>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<ItemDb> DECODER =
+      new BinaryMessageDecoder<ItemDb>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<Item> getEncoder() {
+  public static BinaryMessageEncoder<ItemDb> getEncoder() {
     return ENCODER;
   }
 
@@ -38,7 +38,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<Item> getDecoder() {
+  public static BinaryMessageDecoder<ItemDb> getDecoder() {
     return DECODER;
   }
 
@@ -47,12 +47,12 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<Item> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<Item>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<ItemDb> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<ItemDb>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this Item to a ByteBuffer.
+   * Serializes this ItemDb to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -61,12 +61,12 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
   /**
-   * Deserializes a Item from a ByteBuffer.
+   * Deserializes a ItemDb from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a Item instance decoded from the given buffer
+   * @return a ItemDb instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static Item fromByteBuffer(
+  public static ItemDb fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -79,14 +79,14 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
    private java.lang.String description;
    private java.lang.String image;
    private java.lang.String largeImage;
-   private java.util.List<java.lang.String> features;
+   private java.lang.String features;
 
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public Item() {}
+  public ItemDb() {}
 
   /**
    * All-args constructor.
@@ -100,7 +100,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
    * @param largeImage The new value for largeImage
    * @param features The new value for features
    */
-  public Item(java.lang.Long id, java.lang.String name, java.lang.String title, java.lang.String category, java.lang.Double price, java.lang.String description, java.lang.String image, java.lang.String largeImage, java.util.List<java.lang.String> features) {
+  public ItemDb(java.lang.Long id, java.lang.String name, java.lang.String title, java.lang.String category, java.lang.Double price, java.lang.String description, java.lang.String image, java.lang.String largeImage, java.lang.String features) {
     this.id = id;
     this.name = name;
     this.title = title;
@@ -142,7 +142,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
     case 5: description = value$ != null ? value$.toString() : null; break;
     case 6: image = value$ != null ? value$.toString() : null; break;
     case 7: largeImage = value$ != null ? value$.toString() : null; break;
-    case 8: features = (java.util.List<java.lang.String>)value$; break;
+    case 8: features = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -287,7 +287,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
    * Gets the value of the 'features' field.
    * @return The value of the 'features' field.
    */
-  public java.util.List<java.lang.String> getFeatures() {
+  public java.lang.String getFeatures() {
     return features;
   }
 
@@ -296,50 +296,50 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
    * Sets the value of the 'features' field.
    * @param value the value to set.
    */
-  public void setFeatures(java.util.List<java.lang.String> value) {
+  public void setFeatures(java.lang.String value) {
     this.features = value;
   }
 
   /**
-   * Creates a new Item RecordBuilder.
-   * @return A new Item RecordBuilder
+   * Creates a new ItemDb RecordBuilder.
+   * @return A new ItemDb RecordBuilder
    */
-  public static com.corp.concepts.shop.models.Item.Builder newBuilder() {
-    return new com.corp.concepts.shop.models.Item.Builder();
+  public static com.corp.concepts.shop.models.ItemDb.Builder newBuilder() {
+    return new com.corp.concepts.shop.models.ItemDb.Builder();
   }
 
   /**
-   * Creates a new Item RecordBuilder by copying an existing Builder.
+   * Creates a new ItemDb RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new Item RecordBuilder
+   * @return A new ItemDb RecordBuilder
    */
-  public static com.corp.concepts.shop.models.Item.Builder newBuilder(com.corp.concepts.shop.models.Item.Builder other) {
+  public static com.corp.concepts.shop.models.ItemDb.Builder newBuilder(com.corp.concepts.shop.models.ItemDb.Builder other) {
     if (other == null) {
-      return new com.corp.concepts.shop.models.Item.Builder();
+      return new com.corp.concepts.shop.models.ItemDb.Builder();
     } else {
-      return new com.corp.concepts.shop.models.Item.Builder(other);
+      return new com.corp.concepts.shop.models.ItemDb.Builder(other);
     }
   }
 
   /**
-   * Creates a new Item RecordBuilder by copying an existing Item instance.
+   * Creates a new ItemDb RecordBuilder by copying an existing ItemDb instance.
    * @param other The existing instance to copy.
-   * @return A new Item RecordBuilder
+   * @return A new ItemDb RecordBuilder
    */
-  public static com.corp.concepts.shop.models.Item.Builder newBuilder(com.corp.concepts.shop.models.Item other) {
+  public static com.corp.concepts.shop.models.ItemDb.Builder newBuilder(com.corp.concepts.shop.models.ItemDb other) {
     if (other == null) {
-      return new com.corp.concepts.shop.models.Item.Builder();
+      return new com.corp.concepts.shop.models.ItemDb.Builder();
     } else {
-      return new com.corp.concepts.shop.models.Item.Builder(other);
+      return new com.corp.concepts.shop.models.ItemDb.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for Item instances.
+   * RecordBuilder for ItemDb instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Item>
-    implements org.apache.avro.data.RecordBuilder<Item> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ItemDb>
+    implements org.apache.avro.data.RecordBuilder<ItemDb> {
 
     private long id;
     private java.lang.String name;
@@ -349,7 +349,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
     private java.lang.String description;
     private java.lang.String image;
     private java.lang.String largeImage;
-    private java.util.List<java.lang.String> features;
+    private java.lang.String features;
 
     /** Creates a new Builder */
     private Builder() {
@@ -360,7 +360,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.corp.concepts.shop.models.Item.Builder other) {
+    private Builder(com.corp.concepts.shop.models.ItemDb.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -401,10 +401,10 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
     }
 
     /**
-     * Creates a Builder by copying an existing Item instance
+     * Creates a Builder by copying an existing ItemDb instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.corp.concepts.shop.models.Item other) {
+    private Builder(com.corp.concepts.shop.models.ItemDb other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -458,7 +458,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setId(long value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setId(long value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -478,7 +478,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearId() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearId() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -497,7 +497,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'name'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setName(java.lang.String value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setName(java.lang.String value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
@@ -517,7 +517,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'name' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearName() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearName() {
       name = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -537,7 +537,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'title'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setTitle(java.lang.String value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setTitle(java.lang.String value) {
       validate(fields()[2], value);
       this.title = value;
       fieldSetFlags()[2] = true;
@@ -557,7 +557,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'title' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearTitle() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearTitle() {
       title = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -577,7 +577,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'category'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setCategory(java.lang.String value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setCategory(java.lang.String value) {
       validate(fields()[3], value);
       this.category = value;
       fieldSetFlags()[3] = true;
@@ -597,7 +597,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'category' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearCategory() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearCategory() {
       category = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -617,7 +617,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'price'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setPrice(double value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setPrice(double value) {
       validate(fields()[4], value);
       this.price = value;
       fieldSetFlags()[4] = true;
@@ -637,7 +637,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'price' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearPrice() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearPrice() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -656,7 +656,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'description'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setDescription(java.lang.String value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setDescription(java.lang.String value) {
       validate(fields()[5], value);
       this.description = value;
       fieldSetFlags()[5] = true;
@@ -676,7 +676,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'description' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearDescription() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearDescription() {
       description = null;
       fieldSetFlags()[5] = false;
       return this;
@@ -696,7 +696,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'image'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setImage(java.lang.String value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setImage(java.lang.String value) {
       validate(fields()[6], value);
       this.image = value;
       fieldSetFlags()[6] = true;
@@ -716,7 +716,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'image' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearImage() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearImage() {
       image = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -736,7 +736,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'largeImage'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setLargeImage(java.lang.String value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setLargeImage(java.lang.String value) {
       validate(fields()[7], value);
       this.largeImage = value;
       fieldSetFlags()[7] = true;
@@ -756,7 +756,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'largeImage' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearLargeImage() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearLargeImage() {
       largeImage = null;
       fieldSetFlags()[7] = false;
       return this;
@@ -766,7 +766,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Gets the value of the 'features' field.
       * @return The value.
       */
-    public java.util.List<java.lang.String> getFeatures() {
+    public java.lang.String getFeatures() {
       return features;
     }
 
@@ -776,7 +776,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * @param value The value of 'features'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder setFeatures(java.util.List<java.lang.String> value) {
+    public com.corp.concepts.shop.models.ItemDb.Builder setFeatures(java.lang.String value) {
       validate(fields()[8], value);
       this.features = value;
       fieldSetFlags()[8] = true;
@@ -796,7 +796,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
       * Clears the value of the 'features' field.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.Item.Builder clearFeatures() {
+    public com.corp.concepts.shop.models.ItemDb.Builder clearFeatures() {
       features = null;
       fieldSetFlags()[8] = false;
       return this;
@@ -804,9 +804,9 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
 
     @Override
     @SuppressWarnings("unchecked")
-    public Item build() {
+    public ItemDb build() {
       try {
-        Item record = new Item();
+        ItemDb record = new ItemDb();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.Long) defaultValue(fields()[0]);
         record.name = fieldSetFlags()[1] ? this.name : (java.lang.String) defaultValue(fields()[1]);
         record.title = fieldSetFlags()[2] ? this.title : (java.lang.String) defaultValue(fields()[2]);
@@ -815,7 +815,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
         record.description = fieldSetFlags()[5] ? this.description : (java.lang.String) defaultValue(fields()[5]);
         record.image = fieldSetFlags()[6] ? this.image : (java.lang.String) defaultValue(fields()[6]);
         record.largeImage = fieldSetFlags()[7] ? this.largeImage : (java.lang.String) defaultValue(fields()[7]);
-        record.features = fieldSetFlags()[8] ? this.features : (java.util.List<java.lang.String>) defaultValue(fields()[8]);
+        record.features = fieldSetFlags()[8] ? this.features : (java.lang.String) defaultValue(fields()[8]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -826,8 +826,8 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<Item>
-    WRITER$ = (org.apache.avro.io.DatumWriter<Item>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<ItemDb>
+    WRITER$ = (org.apache.avro.io.DatumWriter<ItemDb>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -835,8 +835,8 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<Item>
-    READER$ = (org.apache.avro.io.DatumReader<Item>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<ItemDb>
+    READER$ = (org.apache.avro.io.DatumReader<ItemDb>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
@@ -864,18 +864,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
 
     out.writeString(this.largeImage);
 
-    long size0 = this.features.size();
-    out.writeArrayStart();
-    out.setItemCount(size0);
-    long actualSize0 = 0;
-    for (java.lang.String e0: this.features) {
-      actualSize0++;
-      out.startItem();
-      out.writeString(e0);
-    }
-    out.writeArrayEnd();
-    if (actualSize0 != size0)
-      throw new java.util.ConcurrentModificationException("Array-size written was " + size0 + ", but element count was " + actualSize0 + ".");
+    out.writeString(this.features);
 
   }
 
@@ -900,20 +889,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
 
       this.largeImage = in.readString();
 
-      long size0 = in.readArrayStart();
-      java.util.List<java.lang.String> a0 = this.features;
-      if (a0 == null) {
-        a0 = new SpecificData.Array<java.lang.String>((int)size0, SCHEMA$.getField("features").schema());
-        this.features = a0;
-      } else a0.clear();
-      SpecificData.Array<java.lang.String> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<java.lang.String>)a0 : null);
-      for ( ; 0 < size0; size0 = in.arrayNext()) {
-        for ( ; size0 != 0; size0--) {
-          java.lang.String e0 = (ga0 != null ? ga0.peek() : null);
-          e0 = in.readString();
-          a0.add(e0);
-        }
-      }
+      this.features = in.readString();
 
     } else {
       for (int i = 0; i < 9; i++) {
@@ -951,20 +927,7 @@ public class Item extends org.apache.avro.specific.SpecificRecordBase implements
           break;
 
         case 8:
-          long size0 = in.readArrayStart();
-          java.util.List<java.lang.String> a0 = this.features;
-          if (a0 == null) {
-            a0 = new SpecificData.Array<java.lang.String>((int)size0, SCHEMA$.getField("features").schema());
-            this.features = a0;
-          } else a0.clear();
-          SpecificData.Array<java.lang.String> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<java.lang.String>)a0 : null);
-          for ( ; 0 < size0; size0 = in.arrayNext()) {
-            for ( ; size0 != 0; size0--) {
-              java.lang.String e0 = (ga0 != null ? ga0.peek() : null);
-              e0 = in.readString();
-              a0.add(e0);
-            }
-          }
+          this.features = in.readString();
           break;
 
         default:

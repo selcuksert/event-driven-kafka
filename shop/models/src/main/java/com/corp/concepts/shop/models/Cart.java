@@ -102,7 +102,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
     case 0: return timestamp;
     case 1: return customerId;
     case 2: return cartItems;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -113,7 +113,7 @@ public class Cart extends org.apache.avro.specific.SpecificRecordBase implements
     case 0: timestamp = (java.lang.Long)value$; break;
     case 1: customerId = (java.lang.Long)value$; break;
     case 2: cartItems = (java.util.List<com.corp.concepts.shop.models.CartItem>)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 

@@ -98,7 +98,7 @@ public class Inventory extends org.apache.avro.specific.SpecificRecordBase imple
     switch (field$) {
     case 0: return itemId;
     case 1: return count;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -108,7 +108,7 @@ public class Inventory extends org.apache.avro.specific.SpecificRecordBase imple
     switch (field$) {
     case 0: itemId = (java.lang.Long)value$; break;
     case 1: count = (java.lang.Integer)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 

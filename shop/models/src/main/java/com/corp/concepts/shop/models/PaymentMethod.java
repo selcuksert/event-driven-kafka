@@ -106,7 +106,7 @@ public class PaymentMethod extends org.apache.avro.specific.SpecificRecordBase i
     case 1: return cardNumber;
     case 2: return expiry;
     case 3: return cvv;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -118,7 +118,7 @@ public class PaymentMethod extends org.apache.avro.specific.SpecificRecordBase i
     case 1: cardNumber = value$ != null ? value$.toString() : null; break;
     case 2: expiry = value$ != null ? value$.toString() : null; break;
     case 3: cvv = (java.lang.Integer)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 

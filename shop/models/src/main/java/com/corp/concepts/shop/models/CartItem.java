@@ -102,7 +102,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
     case 0: return item;
     case 1: return quantity;
     case 2: return size;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -113,7 +113,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
     case 0: item = (com.corp.concepts.shop.models.Item)value$; break;
     case 1: quantity = (java.lang.Integer)value$; break;
     case 2: size = (com.corp.concepts.shop.models.Size)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 

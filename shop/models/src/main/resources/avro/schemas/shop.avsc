@@ -45,6 +45,38 @@
   } ]
 }, {
   "type" : "record",
+  "name" : "ItemDb",
+  "namespace" : "com.corp.concepts.shop.models",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "long"
+  }, {
+    "name" : "name",
+    "type" : "string"
+  }, {
+    "name" : "title",
+    "type" : "string"
+  }, {
+    "name" : "category",
+    "type" : "string"
+  }, {
+    "name" : "price",
+    "type" : "double"
+  }, {
+    "name" : "description",
+    "type" : "string"
+  }, {
+    "name" : "image",
+    "type" : "string"
+  }, {
+    "name" : "largeImage",
+    "type" : "string"
+  }, {
+    "name" : "features",
+    "type" : "string"
+  } ]
+}, {
+  "type" : "record",
   "name" : "CartItem",
   "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {

@@ -106,7 +106,7 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
     case 1: return customerId;
     case 2: return email;
     case 3: return phoneNumber;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -118,7 +118,7 @@ public class Account extends org.apache.avro.specific.SpecificRecordBase impleme
     case 1: customerId = (java.lang.Long)value$; break;
     case 2: email = value$ != null ? value$.toString() : null; break;
     case 3: phoneNumber = value$ != null ? value$.toString() : null; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 

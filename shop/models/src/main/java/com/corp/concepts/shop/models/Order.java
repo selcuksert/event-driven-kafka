@@ -122,7 +122,7 @@ public class Order extends org.apache.avro.specific.SpecificRecordBase implement
     case 5: return shippingAddressId;
     case 6: return billingAddressId;
     case 7: return cartId;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -138,7 +138,7 @@ public class Order extends org.apache.avro.specific.SpecificRecordBase implement
     case 5: shippingAddressId = (java.lang.Long)value$; break;
     case 6: billingAddressId = (java.lang.Long)value$; break;
     case 7: cartId = (java.lang.Long)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
