@@ -19,14 +19,14 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j(topic = "Item Reader Logger")
-public class ItemReader {
+public class ItemProcessor {
 
 	@Value("${spring.cloud.stream.kafka.streams.binder.configuration.item-materialized-as}")
 	private String itemTable;
 
 	private ObjectMapper objectMapper;
 
-	public ItemReader() {
+	public ItemProcessor() {
 		this.objectMapper = new ObjectMapper();
 	}
 
