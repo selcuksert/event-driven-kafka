@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class CartItem extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4261002677000400423L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CartItem\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"item\",\"type\":{\"type\":\"record\",\"name\":\"ItemDb\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeimage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"size\",\"type\":{\"type\":\"enum\",\"name\":\"Size\",\"symbols\":[\"XS\",\"S\",\"M\",\"L\",\"XL\"]}}]}");
+  private static final long serialVersionUID = 5034749648718880448L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CartItem\",\"namespace\":\"com.corp.concepts.shop.models\",\"fields\":[{\"name\":\"item\",\"type\":{\"type\":\"record\",\"name\":\"Item\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"image\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"largeimage\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"features\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"size\",\"type\":{\"type\":\"enum\",\"name\":\"Size\",\"symbols\":[\"XS\",\"S\",\"M\",\"L\",\"XL\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -71,7 +71,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
     return DECODER.decode(b);
   }
 
-   private com.corp.concepts.shop.models.ItemDb item;
+   private com.corp.concepts.shop.models.Item item;
    private int quantity;
    private com.corp.concepts.shop.models.Size size;
 
@@ -88,7 +88,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
    * @param quantity The new value for quantity
    * @param size The new value for size
    */
-  public CartItem(com.corp.concepts.shop.models.ItemDb item, java.lang.Integer quantity, com.corp.concepts.shop.models.Size size) {
+  public CartItem(com.corp.concepts.shop.models.Item item, java.lang.Integer quantity, com.corp.concepts.shop.models.Size size) {
     this.item = item;
     this.quantity = quantity;
     this.size = size;
@@ -110,7 +110,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: item = (com.corp.concepts.shop.models.ItemDb)value$; break;
+    case 0: item = (com.corp.concepts.shop.models.Item)value$; break;
     case 1: quantity = (java.lang.Integer)value$; break;
     case 2: size = (com.corp.concepts.shop.models.Size)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
@@ -121,7 +121,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'item' field.
    * @return The value of the 'item' field.
    */
-  public com.corp.concepts.shop.models.ItemDb getItem() {
+  public com.corp.concepts.shop.models.Item getItem() {
     return item;
   }
 
@@ -130,7 +130,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'item' field.
    * @param value the value to set.
    */
-  public void setItem(com.corp.concepts.shop.models.ItemDb value) {
+  public void setItem(com.corp.concepts.shop.models.Item value) {
     this.item = value;
   }
 
@@ -209,8 +209,8 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<CartItem>
     implements org.apache.avro.data.RecordBuilder<CartItem> {
 
-    private com.corp.concepts.shop.models.ItemDb item;
-    private com.corp.concepts.shop.models.ItemDb.Builder itemBuilder;
+    private com.corp.concepts.shop.models.Item item;
+    private com.corp.concepts.shop.models.Item.Builder itemBuilder;
     private int quantity;
     private com.corp.concepts.shop.models.Size size;
 
@@ -230,7 +230,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
       if (other.hasItemBuilder()) {
-        this.itemBuilder = com.corp.concepts.shop.models.ItemDb.newBuilder(other.getItemBuilder());
+        this.itemBuilder = com.corp.concepts.shop.models.Item.newBuilder(other.getItemBuilder());
       }
       if (isValidValue(fields()[1], other.quantity)) {
         this.quantity = data().deepCopy(fields()[1].schema(), other.quantity);
@@ -267,7 +267,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'item' field.
       * @return The value.
       */
-    public com.corp.concepts.shop.models.ItemDb getItem() {
+    public com.corp.concepts.shop.models.Item getItem() {
       return item;
     }
 
@@ -277,7 +277,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'item'.
       * @return This builder.
       */
-    public com.corp.concepts.shop.models.CartItem.Builder setItem(com.corp.concepts.shop.models.ItemDb value) {
+    public com.corp.concepts.shop.models.CartItem.Builder setItem(com.corp.concepts.shop.models.Item value) {
       validate(fields()[0], value);
       this.itemBuilder = null;
       this.item = value;
@@ -297,12 +297,12 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
      * Gets the Builder instance for the 'item' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public com.corp.concepts.shop.models.ItemDb.Builder getItemBuilder() {
+    public com.corp.concepts.shop.models.Item.Builder getItemBuilder() {
       if (itemBuilder == null) {
         if (hasItem()) {
-          setItemBuilder(com.corp.concepts.shop.models.ItemDb.newBuilder(item));
+          setItemBuilder(com.corp.concepts.shop.models.Item.newBuilder(item));
         } else {
-          setItemBuilder(com.corp.concepts.shop.models.ItemDb.newBuilder());
+          setItemBuilder(com.corp.concepts.shop.models.Item.newBuilder());
         }
       }
       return itemBuilder;
@@ -313,7 +313,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public com.corp.concepts.shop.models.CartItem.Builder setItemBuilder(com.corp.concepts.shop.models.ItemDb.Builder value) {
+    public com.corp.concepts.shop.models.CartItem.Builder setItemBuilder(com.corp.concepts.shop.models.Item.Builder value) {
       clearItem();
       itemBuilder = value;
       return this;
@@ -430,7 +430,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
             throw e;
           }
         } else {
-          record.item = fieldSetFlags()[0] ? this.item : (com.corp.concepts.shop.models.ItemDb) defaultValue(fields()[0]);
+          record.item = fieldSetFlags()[0] ? this.item : (com.corp.concepts.shop.models.Item) defaultValue(fields()[0]);
         }
         record.quantity = fieldSetFlags()[1] ? this.quantity : (java.lang.Integer) defaultValue(fields()[1]);
         record.size = fieldSetFlags()[2] ? this.size : (com.corp.concepts.shop.models.Size) defaultValue(fields()[2]);
@@ -480,7 +480,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
       if (this.item == null) {
-        this.item = new com.corp.concepts.shop.models.ItemDb();
+        this.item = new com.corp.concepts.shop.models.Item();
       }
       this.item.customDecode(in);
 
@@ -493,7 +493,7 @@ public class CartItem extends org.apache.avro.specific.SpecificRecordBase implem
         switch (fieldOrder[i].pos()) {
         case 0:
           if (this.item == null) {
-            this.item = new com.corp.concepts.shop.models.ItemDb();
+            this.item = new com.corp.concepts.shop.models.Item();
           }
           this.item.customDecode(in);
           break;

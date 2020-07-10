@@ -181,7 +181,7 @@ class ShopDetail extends connect(store)(PageViewElement) {
           <p>${this._item ? unsafeHTML(this._unescapeText(this._item.description)) : null}</p>
           <h2>Features:</h2>
           <ul>
-            ${repeat(JSON.parse(this._item.features), (i) => i.id, (i) => html`
+            ${repeat(this._item.features, (i) => i.id, (i) => html`
             <li>${unsafeHTML(this._unescapeText(i))}</li>`)}
           </ul>
         </div>

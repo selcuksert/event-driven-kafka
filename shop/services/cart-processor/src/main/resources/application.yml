@@ -20,7 +20,7 @@ spring:
           consumer:
             use-native-decoding: true
         processCart-in-1:
-          destination: itemsdb
+          destination: items
           consumer:
             use-native-decoding: true
       kafka:

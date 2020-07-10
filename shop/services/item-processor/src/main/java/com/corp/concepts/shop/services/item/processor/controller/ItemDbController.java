@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.corp.concepts.shop.services.item.processor.entity.Item;
 import com.corp.concepts.shop.services.item.processor.repository.ItemRepository;
+import com.corp.concepts.shop.services.item.processor.service.ItemConvertor;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,9 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/items")
 public class ItemDbController {
 	private ItemRepository itemRepository;
+	private ItemConvertor itemConvertor;
 
-	public ItemDbController(ItemRepository itemRepository) {
+	public ItemDbController(ItemRepository itemRepository, ItemConvertor itemConvertor) {
 		this.itemRepository = itemRepository;
+		this.itemConvertor = itemConvertor;
 	}
 
 	@GetMapping("/item")
@@ -35,8 +38,10 @@ public class ItemDbController {
 
 			Item item = itemRepository.findById(itemId).get();
 
-			if (item != null) {
-				return item.toString();
+			com.corp.concepts.shop.models.Item itemMessage = itemConvertor.convertToItemMessage(item);
+
+			if (itemMessage != null) {
+				return itemMessage.toString();
 			}
 
 		} catch (Exception e) {
@@ -49,8 +54,8 @@ public class ItemDbController {
 
 	@GetMapping
 	@ResponseBody
-	public List<Item> getItems() {
-		List<Item> itemList = new ArrayList<>();
+	public List<com.corp.concepts.shop.models.Item> getItems() {
+		List<com.corp.concepts.shop.models.Item> itemList = new ArrayList<>();
 		try {
 			Iterator<Item> items = itemRepository.findAll().iterator();
 
@@ -58,9 +63,12 @@ public class ItemDbController {
 				if (items != null) {
 					while (items.hasNext()) {
 						Item item = items.next();
-						itemList.add(item);
+						com.corp.concepts.shop.models.Item itemMessage = 
+								itemConvertor.convertToItemMessage(item);
+
+						itemList.add(itemMessage);
 					}
-					itemList.sort(Comparator.comparing(Item::getId));
+					itemList.sort(Comparator.comparing(com.corp.concepts.shop.models.Item::getId));
 				}
 			}
 
@@ -73,8 +81,8 @@ public class ItemDbController {
 
 	@GetMapping("/category")
 	@ResponseBody
-	public List<Item> getItemsByCategory(@RequestParam(value = "name") String name) {
-		List<Item> itemList = new ArrayList<>();
+	public List<com.corp.concepts.shop.models.Item> getItemsByCategory(@RequestParam(value = "name") String name) {
+		List<com.corp.concepts.shop.models.Item> itemList = new ArrayList<>();
 		try {
 			Iterator<Item> items = itemRepository.findAll().iterator();
 
@@ -82,10 +90,13 @@ public class ItemDbController {
 				while (items.hasNext()) {
 					Item item = items.next();
 					if (name.trim().equalsIgnoreCase(item.getCategory().trim())) {
-						itemList.add(item);
+						com.corp.concepts.shop.models.Item itemMessage = 
+								itemConvertor.convertToItemMessage(item);
+
+						itemList.add(itemMessage);
 					}
 				}
-				itemList.sort(Comparator.comparing(Item::getId));
+				itemList.sort(Comparator.comparing(com.corp.concepts.shop.models.Item::getId));
 			}
 
 		} catch (Exception e) {

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.corp.concepts.shop.models.Cart;
-import com.corp.concepts.shop.models.ItemDb;
+import com.corp.concepts.shop.models.Item;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -45,8 +45,8 @@ public class CartController {
 			ReadOnlyKeyValueStore<Long, Cart> cartStore = interactiveQueryService.getQueryableStore(cartTable,
 					QueryableStoreTypes.<Long, Cart>keyValueStore());
 
-			ReadOnlyKeyValueStore<Long, ItemDb> itemStore = interactiveQueryService.getQueryableStore(itemTable,
-					QueryableStoreTypes.<Long, ItemDb>keyValueStore());
+			ReadOnlyKeyValueStore<Long, Item> itemStore = interactiveQueryService.getQueryableStore(itemTable,
+					QueryableStoreTypes.<Long, Item>keyValueStore());
 
 			cart = cartStore.get(customerId);
 

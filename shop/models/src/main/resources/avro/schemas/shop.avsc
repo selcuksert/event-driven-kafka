@@ -81,7 +81,7 @@
   "namespace" : "com.corp.concepts.shop.models",
   "fields" : [ {
     "name" : "item",
-    "type" : "ItemDb"
+    "type" : "Item"
   }, {
     "name" : "quantity",
     "type" : "int"
