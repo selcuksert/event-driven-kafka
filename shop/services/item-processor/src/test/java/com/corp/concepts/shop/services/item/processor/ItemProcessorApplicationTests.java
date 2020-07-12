@@ -1,10 +1,10 @@
-package com.corp.concepts.shop.services.item.reader;
+package com.corp.concepts.shop.services.item.processor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ItemReaderApplicationTests {
+class ItemProcessorApplicationTests {
 
 	@Test
 	void contextLoads() {

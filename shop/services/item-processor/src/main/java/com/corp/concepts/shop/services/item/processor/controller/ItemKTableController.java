@@ -9,6 +9,7 @@ import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +22,11 @@ import com.corp.concepts.shop.models.Item;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@Slf4j(topic = "Item KTable Controller")
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/ktable/items")
+@RequestMapping(value = "/items")
+@ConditionalOnProperty(name = "custom.item.datasource.use", havingValue = "state-store", matchIfMissing = false)
 public class ItemKTableController {
 	private InteractiveQueryService interactiveQueryService;
 

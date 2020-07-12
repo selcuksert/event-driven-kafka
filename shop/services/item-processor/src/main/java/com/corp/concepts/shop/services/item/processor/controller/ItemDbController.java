@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +19,11 @@ import com.corp.concepts.shop.services.item.processor.service.ItemConvertor;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@Slf4j(topic = "Item DB Controller")
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/items")
+@ConditionalOnProperty(name = "custom.item.datasource.use", havingValue = "db", matchIfMissing = false)
 public class ItemDbController {
 	private ItemRepository itemRepository;
 	private ItemConvertor itemConvertor;
@@ -63,8 +65,7 @@ public class ItemDbController {
 				if (items != null) {
 					while (items.hasNext()) {
 						Item item = items.next();
-						com.corp.concepts.shop.models.Item itemMessage = 
-								itemConvertor.convertToItemMessage(item);
+						com.corp.concepts.shop.models.Item itemMessage = itemConvertor.convertToItemMessage(item);
 
 						itemList.add(itemMessage);
 					}
@@ -90,8 +91,7 @@ public class ItemDbController {
 				while (items.hasNext()) {
 					Item item = items.next();
 					if (name.trim().equalsIgnoreCase(item.getCategory().trim())) {
-						com.corp.concepts.shop.models.Item itemMessage = 
-								itemConvertor.convertToItemMessage(item);
+						com.corp.concepts.shop.models.Item itemMessage = itemConvertor.convertToItemMessage(item);
 
 						itemList.add(itemMessage);
 					}
