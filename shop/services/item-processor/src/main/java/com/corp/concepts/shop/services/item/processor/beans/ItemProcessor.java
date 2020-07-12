@@ -7,6 +7,7 @@ import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Slf4j(topic = "Item Reader Logger")
+@Slf4j(topic = "Item Processor Logger")
 public class ItemProcessor {
 
 	@Value("${spring.cloud.stream.kafka.streams.binder.configuration.item-materialized-as}")
@@ -37,6 +38,7 @@ public class ItemProcessor {
 	}
 
 	@Bean
+	@ConditionalOnProperty(name = "custom.item.datasource.use", havingValue = "db", matchIfMissing = false)
 	public Function<KStream<Long, Item>, KStream<Long, ItemDb>> sendToDbTopic() {
 		return input -> input.map((key, item) -> {
 			ItemDb itemDb = null;
