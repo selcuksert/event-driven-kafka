@@ -1,8 +1,11 @@
-debug: true
+debug: false
 logging:
-  #file:    #name: app.log
-  level:    root: info
-    org.apache.kafka: info
+  #file:
+    #name: app.log
+  level:
+    root: info
+    org.apache.kafka: error
+    org.springframework.kafka.config: debug
 server: 
   port: 9000
 spring:

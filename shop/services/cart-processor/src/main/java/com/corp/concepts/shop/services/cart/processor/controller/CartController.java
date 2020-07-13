@@ -50,15 +50,16 @@ public class CartController {
 
 			cart = cartStore.get(customerId);
 
-			if (cart.getCartItems() != null) {
+			if (cart != null && cart.getCartItems() != null) {
 				cart.setCartItems(cart.getCartItems().stream().map(cartItem -> {
 					cartItem.setItem(itemStore.get(cartItem.getItem().getId()));
 					return cartItem;
 				}).collect(Collectors.toList()));
+				
+				return cart.toString();
 			}
-
-			return cart.toString();
-
+			
+			return (new Cart()).toString();
 		} catch (Exception e) {
 			log.error("Error when getting cart data:", e);
 			return "Error occured. Please try again later.";
